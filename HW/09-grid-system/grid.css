@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font: 100%/1.5em Arial, sans-serif;
+    color: #ffffff;
+    background: #333333;
+}
+
+.kabina {
+    content: '';
+    width: 90%;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+
+}
+
+/* GRID SYSTEM*/
+.tube-1,
+.tube-2,
+.tube-3,
+.tube-4,
+.tube-5,
+.tube-6,
+.tube-7,
+.tube-8,
+.tube-9,
+.tube-10,
+.tube-11,
+.tube-12 {
+    float: left;
+    margin: 0.5em 0;
+    padding: 1em;
+    background: rgba(255, 30, 70, 0.5);
+    text-align: center;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+}
+
+.packege .tube-1,
+.packege .tube-2,
+.packege .tube-3,
+.packege .tube-4,
+.packege .tube-5,
+.packege .tube-6,
+.packege .tube-7,
+.packege .tube-8,
+.packege .tube-9,
+.packege .tube-10,
+.packege .tube-11,
+.packege .tube-12 {
+    width: 100%;
+}
+
+.packege:before,
+.packege:after,
+.clear:before,
+.clear:after {
+    content: '';
+    display: table;
+}
+
+.packege:before,
+.packege:after,
+.clear:after {
+    clear: both;
+}
+
+/* МЕДИА ЗАПРОСЫ*/
+@media screen and (min-width: 321px) {
+    .packege .tube-1 {
+        width: 8.333333%;
+    }
+
+    /*?  почему мы не указываем проблем между .tubes & tube-X*/
+    .packege .tube-2 {
+        width: 16.666666%;
+    }
+
+    .packege .tube-3 {
+        width: 25%;
+    }
+
+    .packege .tube-4 {
+        width: 33.333332%;
+    }
+
+    .packege .tube-5 {
+        width: 41.666665%;
+    }
+
+    .packege .tube-6 {
+        width: 50%;
+    }
+
+    .packege .tube-7 {
+        width: 58.333331%;
+    }
+
+    .packege .tube-8 {
+        width: 66.666664%;
+    }
+
+    .packege .tube-9 {
+        width: 75%;
+    }
+
+    .packege .tube-10 {
+        width: 83.333333%;
+    }
+
+    .packege .tube-11 {
+        width: 91.666663%;
+    }
+
+    .packege .tube-12 {
+        width: 100%;
+    }
+
+    h1 {
+        color: rgba(55, 50, 95, 0.6);;
+    }
+}
+
+/*  HTML 5 ADDITION*/
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}

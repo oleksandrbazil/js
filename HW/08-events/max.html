@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yo</title>
+    <style>
+        .d {
+            content: '';
+            margin: 20px;
+            padding: 20px;
+        }
+        .d1 {
+            background: rgba(100,0,0,0.5);
+        }
+        .d2 {
+            background: rgba(0,100,0,0.5);
+        }
+        .d3 {
+            background: rgba(0,0,100,0.5);
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+    var btn;
+    var input;
+
+    function load() {
+        console.log("loaded")
+        btn = document.getElementById("btn");
+        input = document.getElementById("input");
+
+        btn.addEventListener('click', function(event) {
+            console.log(event.target)
+        }, false);
+
+        input.addEventListener('keypress', function(event) {
+            console.log(event.which);
+
+            if (event.which == 13) {
+                //console.log(event.target);
+
+                event.target.style.border = '1px solid red';
+            }
+        }, false)
+    }
+
+    document.addEventListener('DOMContentLoaded', load, false);
+</script>
+
+<input type="button" value="Btn" id="btn">
+
+<input type='text' id='input'>
+
+<div class="d d1" onclick="alert('d1')" id="dx">
+    <div class="d d2" onclick="alert('d2')">
+        <div class="d d3" onclick="alert('d3')"></div>
+    </div>
+</div>
+<script>
+var d;
+obrabot4ik_ebanii = function () {
+    console.log('hello world');
+};
+d = document.getElementById('dx');
+d.addEventListener('click', obrabot4ik_ebanii, false);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+body {
+    text-align: center;
+}
+div {
+    height: 300px;
+    width: 300px;
+}
+
+.d1 {
+    background: rgba(100,20,20,0.3);
+}
+.d2 {
+    background: rgba(10,200,20,0.3);
+}
+.d3 {
+    background: rgba(10,20,200,0.3);
+}
+
+input[type="button"] {
+    padding: 10px;
+    color: white;
+    background: dimgrey;
+    border:none;
+    margin: 20px;
+    border-radius: 10px;
+}
