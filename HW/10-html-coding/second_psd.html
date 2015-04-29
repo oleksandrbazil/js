@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Second psd</title>
+    <style>
+        body {
+            background: #f7f7f7;
+            font-family: Arial;
+        }
+        .widget {
+            margin: 2px auto;
+            background: #ffffff;
+            height: 196px;
+            width: 516px;
+            border: 1px solid #e2e2e2;
+            border-radius: 5px;
+            box-shadow: 0 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .header {
+
+            height: 40px;
+            border-bottom: 1px solid #e2e2e2;
+            background: #fafafa;
+            border-radius: 5px 5px 0 0;
+            padding: 16px;
+            box-shadow: 0 1px 0 0 #f4f4f4;
+        }
+        .userImage {
+            height: 39px;
+            width: 39px;
+            float: left;
+            background: url('second_sprite.png') 9px 10px #bfbfbf;
+            border-radius: 3px;
+            box-shadow: inset 0 0 2px 2px #b4b4b4;
+        }
+
+        .text {
+            margin-left: 17px;
+            float: left;
+        }
+        .text span:first-child {
+            font-size: 16px;
+
+            color: #262626;
+            font-weight: bold;
+        }
+        .text span:last-child {
+            font-size: 14px;
+            font-style: italic;
+            color: #7b7b7b;
+        }
+        .follow {
+            height: 30px;
+            width: 100px;
+            border: 1px solid #3f6881;
+            border-radius: 2px;
+            float: right;
+            background: #779db0;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#779db0), to(#517d96)); /* Saf4+, Chrome */
+            background-image: -webkit-linear-gradient(top, #779db0, #517d96); /* Chrome 10+, Saf5.1+ */
+            background-image: -moz-linear-gradient(top, #779db0, #517d96); /* FF3.6+ */
+            background-image: -o-linear-gradient(top, #779db0, #517d96); /* Opera 11.10+ */
+            background-image: linear-gradient(to bottom, #779db0, #517d96); /* W3C */
+        }
+        .follow:hover {
+            background: #517d96;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#517d96), to(#779db0)); /* Saf4+, Chrome */
+            background-image: -webkit-linear-gradient(top, #517d96, #779db0); /* Chrome 10+, Saf5.1+ */
+            background-image: -moz-linear-gradient(top, #517d96, #779db0); /* FF3.6+ */
+            background-image: -o-linear-gradient(top, #517d96, #779db0); /* Opera 11.10+ */
+            background-image: linear-gradient(to bottom, #517d96, #779db0); /* W3C */
+        }
+        .follow span {
+            color: #ffffff;
+            padding: 8px;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: bold;
+
+        }
+        .plus {
+            width: 30px;
+            height: 30px;
+            background: url('second_sprite.png') 10px -20px;
+            border-right: 2px solid #3f6881;
+            float: left;
+        }
+        .message {
+            height: 30px;
+            width: 40px;
+            background: url('second_sprite.png') 10px -51px #ffffff;
+            float: right;
+            margin-right: 10px;
+            border-radius: 2px;
+            box-shadow: 0 0 1px 1px #d1d0d0;
+        }
+        .message:hover {
+            background: url('second_sprite.png') -23px -51px #ffffff;
+        }
+        .content {
+            padding: 20px;
+        }
+        .thumbnail-wrapper {
+            content: '';
+            height: 80px;
+            width: 116px;
+            float: left;
+            position: relative;
+            /*margin: 20px;*/
+        }
+        .thumbnail {
+            content: '';
+            height: 72px;
+            width: 102px;
+            background: url('second_cat.jpg') center center no-repeat #333333;
+            border: 4px solid #ffffff;
+            box-shadow: 0 0 1px 1px #d1d0d0;
+            float: left;
+            position: relative;
+
+        }
+
+         .shadow:before,
+         .shadow:after {
+            content: '';
+            position: absolute;
+            top: 50px;
+            height: 40px;
+            width: 3px;
+            background: rgba(0,0,0,0);
+            box-shadow: 4px 0 6px 3px black;
+        }
+        .shadow:before {
+            left: 23px;
+            transform: rotate(85deg);
+        }
+        .shadow:after {
+            right: 29px;
+            transform: rotate(95deg);
+
+        }
+        .play {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 37px;
+            height: 28px;
+            width: 28px;
+            background: url('second_sprite.png') -37px -22px rgba(0,0,0,0);
+        }
+        .tape {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 36px;
+            height: 15px;
+            width: 30px;
+            background: black;
+            background: url('second_sprite.png') -35px -3px rgba(0,0,0,0);
+        }
+
+        .lines {
+            content: '';
+            float: right;
+            width: 340px;
+            height: 80px;
+        }
+        .share {
+            float: right;
+            width: 30px;
+            height: 24px;
+            background: url('second_sprite.png') 0 -84px rgba(0,0,0,0);
+
+            margin: 20px 10px;
+        }
+        .share:hover {
+            background: url('second_sprite.png') -32px -84px rgba(0,0,0,0);
+        }
+        .top-line {
+            height: 60px;
+            border-bottom: 1px solid #e6e6e6;
+        }
+        .txt {
+            float: left;
+        }
+        .txt  span:first-child {
+            font-size: 10px;
+            font-weight: 600;
+            color: #ababab;
+            text-transform: uppercase;
+        }
+        .txt  span:last-child {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+
+
+        .bottom-line ul {
+            list-style: none;
+            margin-top: 8px;
+            padding: 0;
+        }
+        .bottom-line ul li {
+            display: inline-block;
+            font-size: 10px;
+            color: #b5b5b5;
+            font-style: italic;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+        .bottom-line ul li:nth-child(even) {
+
+        }
+
+        .bottom-line ul li:nth-child(2) span{
+            color: #848484;
+            border-bottom: 1px solid #848484;
+            box-shadow: 0 1px 0 0 #e4e4e4;
+        }
+        .bottom-line ul li:nth-child(6) {
+            text-transform: uppercase;
+            font-style: normal;
+            font-weight: normal;
+        }
+
+
+        .bottom-line ul li:nth-child(odd) {
+            background: url('second_sprite.png') rgba(0,0,0,0);
+        }
+
+
+        .bottom-line ul li:nth-child(1) {
+            width: 13px;
+            height: 17px;
+            background-position: 0 -110px;;
+        }
+
+        .bottom-line ul li:nth-child(3) {
+            width: 14px;
+            height: 15px;
+            margin-left: 5px;
+            background-position: 0 -127px;
+        }
+        .bottom-line ul li:nth-child(5) {
+            top:0;
+            width: 18px;
+            height: 17px;
+            margin-left: 20px;
+            background-position: 0 -143px;
+        }
+
+
+
+       /* СТАРЫЙ ВАРИАНТ НИЖНЕГО РЯДА ИМЕЕТ НЕДОСТАТОК: ОТСУТСТВУЕТ ВЕРТИКАЛЬНОЕ ВЫРАВНИВАНИЕ (иконки выше текста)
+       #### CSS - code #####
+       .bottom-line ul {
+            list-style: none;
+            margin-top: 8px;
+            padding: 0;
+        }
+        .bottom-line ul li {
+            display: inline-block;
+            font-size: 10px;
+            color: #b5b5b5;
+            font-style: italic;
+            font-weight: bold;
+            vertical-align: middle;
+            position: relative;
+            margin-left: 20px;
+
+        }
+        .bottom-line ul li:first-child span{
+            color: #848484;
+            border-bottom: 1px solid #848484;
+            box-shadow: 0 1px 0 0 #e4e4e4;
+        }
+        .bottom-line ul li:last-child {
+            text-transform: uppercase;
+            font-style: normal;
+            font-weight: normal;
+            margin-left: 40px;
+        }
+        .bottom-line ul li i{
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: -3px;
+            margin-right: 3px;
+            background: url('second_sprite.png') rgba(0,0,0,0);
+        }
+        .bottom-line ul li:first-child i{
+            width: 13px;
+            height: 17px;
+            background-position: 0 -110px;;
+        }
+
+        .bottom-line ul li:nth-child(2) i{
+            width: 14px;
+            height: 15px;
+            background-position: 0 -127px;
+        }
+        .bottom-line ul li:last-child i{
+            top:0;
+            width: 18px;
+            height: 17px;
+            background-position: 0 -143px;
+        }
+
+
+        #### HTML CODE ####
+        <div class="bottom-line">
+                <ul>
+                    <li><i></i>Posted from <span>California</span></li>
+                    <li><i></i>1 hours ago</li>
+                    <li><i></i>85 comments</li>
+                </ul>
+            </div>
+        */
+        .clear-fix:after {
+            content: '';
+            clear: both;
+        }
+
+        img {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+<div class="widget">
+    <div class="header clear-fix">
+        <div class="userImage"></div>
+        <div class="text">
+            <span>@cssliveru</span><br>
+            <span>HTML, CSS & JS</span>
+        </div>
+        <div class="follow">
+            <span>Follow</span>
+            <div class="plus"></div>
+        </div>
+        <div class="message"></div>
+    </div>
+    <div class="content">
+        <div class="thumbnail-wrapper">
+            <i class="shadow"></i>
+            <div class="thumbnail">
+                <i class="tape"></i>
+                <i class="play"></i>
+            </div>
+        </div>
+        <div class="lines">
+            <div class="top-line">
+                <div class="share"></div>
+                <div class="txt">
+                    <span>cssliveru shared a photo:</span><br>
+                    <span>“Just gave our kitty a bath! lol!”</span>
+                </div>
+            </div>
+            <div class="bottom-line">
+                <ul>
+                    <li></li>
+                    <li>Posted from <span>California</span></li>
+                    <li></li>
+                    <li>1 hours ago</li>
+                    <li></li>
+                    <li>85 comments</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <img src="social-widget-css-live.jpg" alt="original"/>
+</div>
+</body>
+</html>
