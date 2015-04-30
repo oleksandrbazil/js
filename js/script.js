@@ -23,6 +23,56 @@ function mathTable() {
 
 /*################### START ###################*/
 /*#############################################*/
+/*#########   GETMIN & GETMAX & POW  ##########*/
+/*#############################################*/
+/*#############################################*/
+var Analize = new function () {
+    this.data = [532,6743,765,'подстава',1,213,532,7,4237,-93,-123,function(){alert('ОЛОЛОЛО... последний аргумент в массиве - функция')}];
+    this.getMax = function (massive) {
+        var massive, i, n;
+        massive = this.data;
+        console.log('элемент = ' + massive[i]);
+        console.log('длинна = ' + massive[massive.length]);
+        for (i = 0,  n = 0; massive[i] !== massive[massive.length]; i++) {
+
+            if (n <= parseInt(massive[i])) {
+                n = massive[i];
+                            console.log('элемент ' + i);
+                 console.log('длинна ' + massive.length);
+            };
+        }
+        if (typeof massive[massive.length - 1] == 'function') {
+            /*console.log('последний аргумент функция');*/
+            (massive[massive.length - 1])();
+
+        }
+        return n;
+    };
+    this.getMin = function (massive) {
+        var massive, i, n;
+        massive = this.data;
+        for (i = 0,  n = 0; massive[i] !== massive[massive.length]; i++) {
+            if (n >= parseInt(massive[i])) {
+                n = massive[i];
+            };
+        }
+        if (typeof massive[massive.length - 1] == 'function') {
+            (massive[massive.length - 1])();
+        }
+        return n;
+    };
+    this.powRecursion = function (x, y) {
+        if (y != 1) {
+            return x * this.powRecursion(x, y - 1);
+        }
+        else {
+            return x;
+        }
+    }
+};
+
+/*################### START ###################*/
+/*#############################################*/
 /*#################   POPUP   #################*/
 /*#############################################*/
 /*#############################################*/
