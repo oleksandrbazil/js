@@ -1,0 +1,94 @@
+/*################ GENERAL ################*/
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+a {
+    color: #e8645a;
+}
+::selection {
+    background: #e8645a;
+}
+
+
+
+
+/*################ HEADER ################*/
+.header {
+    height: 40px;
+    color: #ffffff;
+    background: url('../img/header-path.png') repeat-x left bottom #76c7c0;
+    padding: 25px 20px;
+}
+
+.nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+    float: right;
+}
+.logo {
+    float: left;
+    font-size: 25px;
+    font-weight: bold;
+}
+.nav li {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 5px;
+    /*background: #e8645a;
+    border-radius: 5px;
+    box-shadow: 0 2px 0 0 #e2534b;*/
+
+}
+.nav li:last-child {
+    margin-right: 0;
+}
+.nav li:hover {
+    background: #62a29e;
+    border-radius: 5px;
+    box-shadow: 0 2px 0 0 #528b86;
+}
+.nav li:active {
+    background: #8ed2cd;
+}
+
+.nav li > ul {
+    display: none;
+}
+
+
+
+
+
+/*################ CONTENT ################*/
+section.first {
+    height: 190px; /*590px*/
+    background: #f3f3f3;
+}
+
+section.second {
+    height: 100px; /*400*/
+    background: #ececec;
+}
+section.third {
+    height: 180px; /*680*/
+    background: #f3f3f3;
+}
+
+
+
+
+
+/*################ FOOTER ################*/
+.footer {
+    background: #76c7c0;
+}
+.footer-top {
+    height: 300px;
+}
+.footer-bottom {
+    height: 50px;
+    background: #6ab3ac;
+}
