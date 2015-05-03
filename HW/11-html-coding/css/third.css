@@ -63,6 +63,10 @@ a {
 
 
 /*################ CONTENT ################*/
+section.home {
+    background: #7f8c8c;
+    height: 200px; /*500px*/
+}
 section.first {
     height: 190px; /*590px*/
     background: #f3f3f3;
@@ -84,11 +88,102 @@ section.third {
 /*################ FOOTER ################*/
 .footer {
     background: #76c7c0;
+    color: #ffffff;
 }
+/*---------------------------------------top*/
 .footer-top {
-    height: 300px;
+    height: 210px;
+    padding: 45px 10px; /*45px 0*/
+    font-size: 13px;
+    background: url("../img/third_bgPath_footer.png") repeat-x left top;
+
 }
+.pill-1,
+.pill-2,
+.pill-3,
+.pill-4 {
+    margin: 0 50px;
+}
+.pill-1 {
+    float: left;
+    width: 370px; /*coll=4*/
+    margin-left: 0;
+}
+.pill-1 span{
+    font-size: 25px;
+    font-weight: bold;
+}
+.pill-1 table tr td:nth-child(even){
+    padding-left: 10px;
+    font-style: italic;
+    font-weight: bold;
+}
+.pill-2,
+.pill-3{
+    float: left;
+    padding: 10px;
+}
+.pill-2 span,
+.pill-3 span{
+    font-weight: bold;
+    font-size: 14px;
+    color: #4b7e79;
+}
+.pill-2 ul,
+.pill-3 ul {
+    list-style: none;
+    padding: 30px 0 0 25px;
+    margin: 0;
+}
+
+.pill-2 ul li i,
+.pill-3 ul li i{
+    padding-right: 10px;
+}
+.pill-4 {
+    float: left;
+    padding: 10px;
+    margin-right: 0;
+}
+/*---------------------------------------BOTTOM*/
 .footer-bottom {
-    height: 50px;
+    height: 20px;
     background: #6ab3ac;
+    padding: 15px 10px; /*15px 0;*/
+}
+.copyrights {
+    float: left;
+    font-size: 12px;
+}
+.follow {
+    float: right;
+}
+.follow ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.follow ul li {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+.follow ul li a {
+    display: block;
+    height: 22px;
+    width: 22px;
+    background: url("../img/third_sprite.png") no-repeat;
+}
+.follow ul li:nth-child(2) a {
+    background-position: -22px 0;
+}
+.follow ul li:nth-child(3) a {
+    background-position: -44px 0;
+}
+.follow ul li:nth-child(4) a {
+    background-position: -66px 0;
+}
+
+.clear:after {
+    clear: both;
 }
