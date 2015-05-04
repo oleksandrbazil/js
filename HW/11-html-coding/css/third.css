@@ -2,15 +2,14 @@
 body {
     font-family: 'Open Sans', sans-serif;
 }
+
 a {
     color: #e8645a;
 }
+
 ::selection {
     background: #e8645a;
 }
-
-
-
 
 /*################ HEADER ################*/
 .header {
@@ -27,46 +26,82 @@ a {
     vertical-align: middle;
     float: right;
 }
+
 .logo {
     float: left;
     font-size: 25px;
     font-weight: bold;
 }
+
 .nav li {
     display: inline-block;
-    text-transform: uppercase;
-    font-size: 14px;
-    padding: 5px;
-    /*background: #e8645a;
-    border-radius: 5px;
-    box-shadow: 0 2px 0 0 #e2534b;*/
-
+    /*    background: #e8645a;
+        border-radius: 5px;
+        box-shadow: 0 2px 0 0 #e2534b;*/
 }
-.nav li:last-child {
+
+.nav li a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 5px;
+}
+
+.nav > li:last-child {
     margin-right: 0;
 }
-.nav li:hover {
+
+.nav > li:hover {
     background: #62a29e;
     border-radius: 5px;
     box-shadow: 0 2px 0 0 #528b86;
 }
+
+.nav > li:hover ul,
+.nav > li:active ul {
+    display: block;
+}
+
 .nav li:active {
     background: #8ed2cd;
 }
 
-.nav li > ul {
+.nav > li > ul {
     display: none;
+    position: absolute;
+    margin-top: 10px;
+    padding: 0;
+    background: #e2534b;
+    border-radius: 5px;
 }
 
+.nav > li > ul > li {
+    display: block;
+    background: #e8645a;
+    border-radius: 3px;
+    margin: 5px;
+}
 
+.nav li ul li:hover {
+    background: #76c7c0;
+}
 
+.nav > li > ul > li > a {
+    text-transform: none;
+}
 
+.nav > li > ul > li > a > i {
+    padding: 0 10px;
+}
 
 /*################ CONTENT ################*/
 section.home {
     background: #7f8c8c;
     height: 200px; /*500px*/
 }
+
 section.first {
     height: 190px; /*590px*/
     background: #f3f3f3;
@@ -76,59 +111,136 @@ section.second {
     height: 100px; /*400*/
     background: #ececec;
 }
+
 section.third {
-    height: 180px; /*680*/
+    height: 280px; /*680*/
     background: #f3f3f3;
+
 }
 
 
+.hc-nav {
+    width: 1160px;
+    margin: 0 auto;
+    background: rgba(0,0,0,0.1);
+}
+.hc-nav-name{
+    color: #7f8c8c;
+    font-weight: bold;
+    float: left;
+    display: inline-block;
+}
+.hc-nav-line{
+    content: "";
+    border: 1px solid red;
 
+}
+.hc-nav-btns {
+    background: yellow;
+    padding: 5px;
+    float: right;
+}
+.hc-nav-btn {
+    display: inline-block;
+    width: 40px;
+    height: 37px;
+    color: #ffffff;
+    border-radius: 5px;
+    background: #98a3a3;
+    box-shadow: 0 2px 0 0 #7f8c8c;
+}
+.hc-nav-btn > i:first-child {
+    padding: 2px 13px;
+}
+.hc-nav-btn > i {
+    padding: 2px 15px;
+}
+.hc-nav-btn:hover {
+    background: #e2534b;
+    box-shadow: 0 2px 0 0 #e2534b;
+}
+.happyClients {
+    background: yellowgreen;
+    padding: 10px 0;
+    width: 9999px;
+}
+.happyClients-wrapper {
+    width: 1160px;
+    overflow: hidden;
+    margin: 0 auto;
 
+}
+.happyClients > ul {
+    padding: 0;
+}
+.happyClients > ul > li {
+    list-style: none;
+    display: inline-block;
+    padding: 0;
+    margin: 0 10px;
+}
+.happyClients > ul > li:last-child {
+    margin-right: 0;
+}
+
+.happyClients > ul > li > a {
+    display: block;
+    width: 170px;
+    height: 90px;
+    background: url("../img/third_sprite.png") 30px -40px no-repeat #f8f8f8;
+    border-radius: 5px;
+}
 
 /*################ FOOTER ################*/
 .footer {
     background: #76c7c0;
     color: #ffffff;
 }
+
 /*---------------------------------------top*/
 .footer-top {
-    height: 210px;
+    min-height: 210px;
     padding: 45px 10px; /*45px 0*/
     font-size: 13px;
     background: url("../img/third_bgPath_footer.png") repeat-x left top;
-
 }
+
 .pill-1,
 .pill-2,
 .pill-3,
 .pill-4 {
     margin: 0 50px;
-}
-.pill-1 {
     float: left;
+}
+
+.pill-1 {
     width: 370px; /*coll=4*/
     margin-left: 0;
 }
-.pill-1 span{
+
+.pill-1 span {
     font-size: 25px;
     font-weight: bold;
 }
-.pill-1 table tr td:nth-child(even){
+
+.pill-1 table tr td:nth-child(even) {
     padding-left: 10px;
     font-style: italic;
     font-weight: bold;
 }
+
 .pill-2,
-.pill-3{
-    float: left;
+.pill-3 {
     padding: 10px;
 }
+
 .pill-2 span,
-.pill-3 span{
+.pill-3 span {
     font-weight: bold;
     font-size: 14px;
     color: #4b7e79;
 }
+
 .pill-2 ul,
 .pill-3 ul {
     list-style: none;
@@ -137,53 +249,108 @@ section.third {
 }
 
 .pill-2 ul li i,
-.pill-3 ul li i{
+.pill-3 ul li i {
     padding-right: 10px;
 }
+
 .pill-4 {
-    float: left;
     padding: 10px;
     margin-right: 0;
+    margin-left: 30px;
 }
+
+.fblog {
+    font-size: 20px;
+    font-style: italic;
+    margin-left: 20px;
+}
+
+.fblog > span {
+    font-style: normal;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+
+}
+
+.pill-4 table {
+    border-spacing: 20px;
+    font-size: 13px;
+}
+
+.pill-4 table tr td:nth-child(odd) {
+    width: 70px;
+    height: 70px;
+    opacity: 0.6;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+.pill-4 table tr td:nth-child(even) {
+    width: 250px;
+    vertical-align: top;
+}
+
+.pill-4 table tr td:nth-child(even) p {
+    margin: 0 0 5px 0;
+}
+
+.pill-4 table tr td:nth-child(even) span {
+    color: #4b7e79;
+}
+
 /*---------------------------------------BOTTOM*/
 .footer-bottom {
     height: 20px;
     background: #6ab3ac;
     padding: 15px 10px; /*15px 0;*/
 }
+
 .copyrights {
     float: left;
     font-size: 12px;
 }
+
 .follow {
     float: right;
 }
+
 .follow ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
+
 .follow ul li {
     padding: 0;
     margin: 0;
     display: inline-block;
 }
+
 .follow ul li a {
     display: block;
     height: 22px;
     width: 22px;
     background: url("../img/third_sprite.png") no-repeat;
 }
+
 .follow ul li:nth-child(2) a {
     background-position: -22px 0;
 }
+
 .follow ul li:nth-child(3) a {
     background-position: -44px 0;
 }
+
 .follow ul li:nth-child(4) a {
     background-position: -66px 0;
 }
 
 .clear:after {
+    content: '';
+    display: block;
+    visibility: hidden;
+    height: 0;
     clear: both;
 }
