@@ -373,7 +373,15 @@ ul > li > a > i {
     font-weight: bold;
 
 }
-
+.whyL {
+    z-index: 10;
+}
+.whyR {
+    z-index: 10;
+}
+.whyC {
+    z-index: 20;
+}
 .whyL,
 .whyR,
 .whyC {
@@ -388,45 +396,18 @@ ul > li > a > i {
     padding: 20px 0;
 }
 
-/* Small devices (tablets, 768px and up) */
-@media (max-width: 767px) {
-    .whyL > img,
-    .whyR > img,
-    .whyC > img {
-        display: block;
-        width: 50%;
-        margin: 0 auto;
-    }
-}
 
-@media (min-width: 1200px) {
-    .whyR > img {
-        margin-left: -100px;
-    }
 
-    .whyL > img,
-    .whyR > img {
-        margin-top: 65px;
-        margin-bottom: 80px;
-        height: auto;
-        width: auto;
-    }
-
-    .whyC > img {
-
-        margin-bottom: 40px;
-        height: auto;
-        width: auto;
-    }
-}
-
-/*--------------------whyL*/
+/*left and right table block*/
 .why-block-table {
-    /*left and right table block*/
     display: table;
     margin: 0 auto;
 }
-
+.whyL-row-header,
+.whyR-row-header {
+    text-align: center;
+}
+/*--------------------whyL*/
 .whyL-row-header {
     color: #7f8c8c;
     font-size: 16px;
@@ -436,7 +417,7 @@ ul > li > a > i {
 .whyL-row-content ul {
     list-style: none;
     padding: 0;
-    margin-top: 35px;
+    margin-top: 25px; /*35*/
 }
 
 .whyL-row-content ul li {
@@ -451,6 +432,7 @@ ul > li > a > i {
 
 /*----------------------whyR */
 
+
 .whyR-row-header,
 .whyR-row-author {
     color: #7f8c8c;
@@ -463,12 +445,13 @@ ul > li > a > i {
 }
 
 .whyR-row-author span {
-    padding-right: 20px;
+    padding-right: 10%;
 }
 
 .whyR-row-content > div {
-    margin-top: 25px;
-    width: 250px;
+    /*margin-top: 25px;*/
+    margin: 25px auto 10px auto;
+    width: 100%;
     padding: 10px;
     background: #f8f8f8;
     border-radius: 5px;
@@ -494,9 +477,11 @@ ul > li > a > i {
 /*----------------------whyC*/
 
 .whyC-boxes {
-    padding: 60px 0 20px 0;
+    padding: 40px 15px 20px 15px;
 }
-
+.whyC-boxes > div {
+    padding: 20px 0;
+}
 .whyC-box {
     font-size: 16px;
     font-weight: bold;
@@ -528,48 +513,93 @@ ul > li > a > i {
     background-position: -366px 0;
 }
 
+/* Small devices (tablets, 768px and up) */
+@media (max-width: 767px) {
+    .whyL > img,
+    .whyR > img,
+    .whyC > img {
+        display: block;
+        width: 60%;
+        margin: 0 auto;
+    }
+    .whyC > img {
+        width: 90%;
+    }
+    .whyR-row-content > div {
+        width: 50%;
+    }
+    .whyR-row-author span {
+        padding-right: 30%;
+    }
+}
+@media (min-width: 992px) {
+    .whyL > img,
+    .whyR > img,
+    .whyC > img {
+        height: auto;
+        width: 120%;
 
-/*---------------------------------------section THIRD */
+    }
+    .whyC > img {
+        margin-left: -10%;
+    }
+    .whyR > img {
+        margin-left: -20%;
+    }
+    .whyL > img,
+    .whyR > img {
+        margin-top: 120px;
+    }
+}
 
+@media (min-width: 1200px) {
+    .whyR > img {
+        margin-left: -100px;
+    }
 
-/*---------------------------------------section THIRD */
-section.third {
-    /*height: 280px; *//*680*/
+    .whyL > img,
+    .whyR > img {
+        margin-top: 65px;
+        margin-bottom: 80px;
+        height: auto;
+        width: auto;
+    }
+
+    .whyC > img {
+        margin-bottom: 40px;
+        height: auto;
+        width: auto;
+        margin-left: 0;
+    }
+    .whyL-row-header,
+    .whyR-row-header {
+        text-align: left;
+    }
+}
+/*---------------------------------------new Happy clients (slider) */
+.new-hc {
     background: #f3f3f3;
 }
-
-.hc-nav {
-    /*border: 1px solid blue;*/
-    display: table;
-    width: 1160px;
-    margin: 0 auto;
-    padding: 30px 0 0 0;
-    /*background: rgba(0, 0, 0, 0.1);*/
-
-}
-
-.hc-nav-name {
-    display: table-cell;
+.new-hc-name {
+    /*background: rgba(100,0,0,0.6);*/
     color: #7f8c8c;
     font-weight: bold;
-    width: 150px;
-    vertical-align: middle;
+    padding: 9px 0;
 }
 
-.hc-nav-line {
+.new-hc-line {
+    /*background: rgba(100,190,0,0.6);*/
     display: table-cell;
-    content: "";
     vertical-align: middle;
-    /*border: 1px solid red;*/
+    position: relative;
 }
-.hc-nav-line > div {
-    content: "";
+.new-hc-line div {
     height: 1px;
+    margin: 18px 0;
     background: #e1e3e3;
     position: relative;
 }
-.hc-nav-line > div > i {
-    content: "";
+.new-hc-line i {
     position: absolute;
     left: 0;
     top: -3px;
@@ -577,77 +607,74 @@ section.third {
     width: 7px;
     border-radius: 7px;
     background: #e1e3e3;
+
 }
 
-.hc-nav-btns {
-    display: table-cell;
-    width: 110px;
-    padding: 5px;
+.new-hc-btns {
+    /*background: rgba(100,0,100,0.6);*/
+    text-align: right;
 }
 
-.hc-nav-btn {
-    display: inline-block;
-    width: 40px;
-    height: 37px;
+.new-hc-btns .fa{
+    padding: 5px 15px;
     color: #ffffff;
     border-radius: 5px;
     background: #98a3a3;
     box-shadow: 0 2px 0 0 #7f8c8c;
-}
-.hc-nav-btn:last-child {
-    margin-left: 20px;
-}
+ }
 
-.hc-nav-btn > i:first-child {
-    padding: 2px 13px;
-}
-
-.hc-nav-btn > i {
-    padding: 2px 15px;
-}
-
-.hc-nav-btn:hover {
+.new-hc-btns .fa:hover{
     background: #ff5249;
     box-shadow: 0 2px 0 0 #ff5249;
 }
 
-.happyClients {
+.new-hc-btns .fa-angle-left {
+    margin-right: 20px;
+}
+
+.client {
+    content: "";
+    height: 50px;
+    background: red;
+    border: 1px solid black;
+    border-radius: 5px;
+    float: left;
+}
+
+
+.carousel {
     /*background: yellowgreen;*/
     padding: 10px 0;
     width: 9999px;
 }
 
-.happyClients-wrapper {
-    width: 1160px;
+.carousel-wrapper {
     overflow: hidden;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
-.happyClients > ul {
+.carousel ul {
     padding: 0;
 }
 
-.happyClients > ul > li {
+.carousel li {
     list-style: none;
     display: inline-block;
     padding: 0;
     margin: 0 10px;
 }
 
-.happyClients > ul > li:last-child {
+.carousel li:last-child {
     margin-right: 0;
 }
 
-.happyClients > ul > li > a {
+.carousel a {
     display: block;
     width: 170px;
     height: 90px;
     background: url("../img/third_sprite.png") 30px -40px no-repeat #f8f8f8;
     border-radius: 5px;
 }
-
-
-
 
 /*-------------------------------------new FOOTER*/
 
@@ -776,11 +803,16 @@ section.third {
 .bf-follow li:nth-child(4) a {
     background-position: -66px 0;
 }
-
+.bf-table {
+    display: table;
+    width: 100%;
+}
 .bf-logo {
-    float: left;
+    display: table-cell;
+    text-align: left;
 }
 .bf-follow {
-    float: right;
+    display: table-cell;
+    text-align: right;
 }
 
