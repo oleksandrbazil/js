@@ -2,9 +2,9 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/third.css"/>
+
     <link rel="stylesheet" href="./css/bootstrap.css"/>
-    <script src="./js/bootstrap.js"></script>
+    <link rel="stylesheet" href="css/third.css"/>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="css/font-awesome.css"/>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -37,32 +37,56 @@
         </div>
     </div>
 </div>
-<div class="new-home container-fluid">
-    <div class="row"> <!--for fix sub-ul visibility of navigation-->
-        <i class="fa fa-angle-double-left"></i>
-        <i class="fa fa-angle-double-right"></i>
+
+<div class="new-carousel container-fluid">
+
+    <div class="row">
+        <i class="fa fa-angle-double-left" href="#myCarousel" role="button" data-slide="prev"></i>
+        <i class="fa fa-angle-double-right" href="#myCarousel" role="button" data-slide="next"></i>
 
         <div class="container">
-            <div class="row">
-                <div class="slider-wrapper col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="slider">
-                        <div>VESTIBULUM</div>
-                        <br/>
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-                        <div> Maecenas tincidunt, augue et rutrum condimentum, <br/>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active slide">
+                        <div class="slide-header">VESTIBULUM</div>
+                        <br/>
+                        <div class="slide-body"> Maecenas tincidunt, augue et rutrum condimentum, <br/>
+                            libero lectus mattis orci, ut commodo.
+                        </div>
+                    </div>
+
+                    <div class="item slide slide2">
+                        <div class="slide-header">VESTIBULUM</div>
+                        <br/>
+                        <div class="slide-body"> Maecenas tincidunt, augue et rutrum condimentum, <br/>
+                            libero lectus mattis orci, ut commodo.
+                        </div>
+                    </div>
+
+                    <div class="item slide slide3">
+                        <div class="slide-header">VESTIBULUM</div>
+                        <br/>
+                        <div class="slide-body"> Maecenas tincidunt, augue et rutrum condimentum, <br/>
                             libero lectus mattis orci, ut commodo.
                         </div>
                     </div>
                 </div>
+
+                <!-- Indicators -->
+                <div class="carousel-indicators">
+                    <div data-target="#myCarousel" data-slide-to="0" class="active" ></div>
+                    <div data-target="#myCarousel" data-slide-to="1"></div>
+                    <div data-target="#myCarousel" data-slide-to="2"></div>
+                </div>
+
             </div>
         </div>
     </div>
-    <div class="row slider-place">
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
+
 </div>
+
 
 <div class="new-intro container-fluid">
     <div class="container">
@@ -351,6 +375,10 @@
 </div>
 </div>
 
+
+
+
+<script src="./js/bootstrap.js"></script>
 </body>
 </html>
 

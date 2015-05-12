@@ -144,15 +144,16 @@ ul > li > a > i {
 
 
 /*################ CONTENT ################*/
-.new-home {
-    background: #7a8d8d;
-}
 
-.new-home > .row {
+/*------###########################-------------------*/
+
+.new-carousel {
+    background: #7f8c8c;
+}
+.new-carousel .row {
     position: relative;
 }
-
-.new-home .fa {
+.new-carousel .fa {
     color: #ffffff;
     padding: 20px 15px;
     border-radius: 0 5px 5px 0;
@@ -161,24 +162,48 @@ ul > li > a > i {
     position: absolute;
     top: 50%;
     margin-top: -25px;
+    z-index: 10;
 }
-
-.new-home .fa-angle-double-left {
+.new-carousel .fa-angle-double-left {
     left: 0;
 }
 
-.new-home .fa-angle-double-right {
+.new-carousel .fa-angle-double-right {
     border-radius: 5px 0 0 5px;
     right: 0;
 }
 
-.new-home .slider {
+.carousel-indicators {
+    position: absolute;
+    bottom: -40px;
+    padding: 10px 0;
     text-align: center;
-    padding: 160px 0 200px 0;
-    color: #ffffff;
+    background: #f3f3f3;
 }
 
-.new-home .slider div:first-child {
+.carousel-indicators div {
+    display: inline-block;
+    width: 40px;
+    height: 5px;
+    margin-right: 10px;
+    background: #aeb9bb;
+}
+.carousel-indicators > div.active {
+    display: inline-block;
+    width: 40px;
+    height: 5px;
+    margin-right: 10px;
+    background: #ff5249;
+}
+
+.item.slide {
+    text-align: center;
+    padding: 80px 0 100px 0;
+    color: #ffffff;
+    z-index: 5;
+}
+
+.item.slide .slide-header {
     display: inline-block;
     font-size: 50px;
     font-weight: bold;
@@ -187,43 +212,60 @@ ul > li > a > i {
     border-radius: 5px;
 }
 
-.new-home .slider div:last-child {
+.item.slide .slide-body {
     display: inline-block;
-    /*width: 390px;*/
+    width: 80%;
     font-size: 16px;
-    padding: 15px 30px; /*15px 40px*/
+    padding: 15px 30px;
     background: #394444;
     border-radius: 5px;
     margin-top: 10px;
 }
+.item.slide2 .slide-header {
+    background: #005249;
+}
+.item.slide3 .slide-header {
+    background: #00ff49;
+}
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
 
-.slider-place {
-    padding: 10px 0;
-    text-align: center;
-    background: #f3f3f3;
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .item.slide .slide-body {
+        width: 70%;
+    }
+    .carousel-indicators div,
+    .carousel-indicators > div.active{
+        width: 60px;
+        height: 5px;
+    }
+    .item.slide {
+        padding: 120px 0 150px 0;
+    }
+
 }
 
-.slider-place > div {
-    display: inline-block;
-    width: 60px;
-    height: 5px;
-    margin-right: 10px;
-    background: #aeb9bb;
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .item.slide .slide-body {
+        width: 50%;
+    }
+    .item.slide {
+        padding: 160px 0 200px 0;
+    }
 }
 
-.slider-place > div:nth-child(2) {
-    background: #ff5249;
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .item.slide .slide-body {
+        width: 40%;
+    }
 }
-
-.slider-place > div:last-child {
-    margin-right: 0;
-}
-
-
-
 /*------------------------INTRO------------------------*/
 .new-intro {
     background: #f3f3f3;
+    padding-top: 40px;
 }
 
 .new-intro > .container > .row {
@@ -275,6 +317,7 @@ ul > li > a > i {
 .new-info {
     background: #f3f3f3;
     padding: 50px 0;
+
 }
 
 .new-info > .container {
@@ -645,7 +688,7 @@ ul > li > a > i {
 .carousel {
     /*background: yellowgreen;*/
     padding: 10px 0;
-    width: 9999px;
+    /*width: 9999px;*/
 }
 
 .carousel-wrapper {
