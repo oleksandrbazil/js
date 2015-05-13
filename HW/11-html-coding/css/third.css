@@ -623,6 +623,7 @@ ul > li > a > i {
 .new-hc {
     background: #f3f3f3;
 }
+
 .new-hc-name {
     /*background: rgba(100,0,0,0.6);*/
     color: #7f8c8c;
@@ -636,12 +637,14 @@ ul > li > a > i {
     vertical-align: middle;
     position: relative;
 }
+
 .new-hc-line div {
     height: 1px;
     margin: 18px 0;
     background: #e1e3e3;
     position: relative;
 }
+
 .new-hc-line i {
     position: absolute;
     left: 0;
@@ -650,7 +653,6 @@ ul > li > a > i {
     width: 7px;
     border-radius: 7px;
     background: #e1e3e3;
-
 }
 
 .new-hc-btns {
@@ -658,15 +660,16 @@ ul > li > a > i {
     text-align: right;
 }
 
-.new-hc-btns .fa{
+.new-hc-btns .fa {
     padding: 5px 15px;
     color: #ffffff;
     border-radius: 5px;
     background: #98a3a3;
     box-shadow: 0 2px 0 0 #7f8c8c;
- }
+    cursor: pointer;
+}
 
-.new-hc-btns .fa:hover{
+.new-hc-btns .fa:hover {
     background: #ff5249;
     box-shadow: 0 2px 0 0 #ff5249;
 }
@@ -675,48 +678,85 @@ ul > li > a > i {
     margin-right: 20px;
 }
 
-.client {
-    content: "";
-    height: 50px;
-    background: red;
-    border: 1px solid black;
-    border-radius: 5px;
-    float: left;
+.hc-carousel {
+    padding: 0;
 }
 
-
-.carousel {
-    /*background: yellowgreen;*/
+.hc-carousel-resizer {
     padding: 10px 0;
-    /*width: 9999px;*/
+    -webkit-transition: -webkit-transform 0.6s ease-in-out;
+    -o-transition: -o-transform 0.6s ease-in-out;
+    transition: ease-in-out 0.8s;
 }
 
-.carousel-wrapper {
+.hc-carousel-wrapper {
     overflow: hidden;
     margin: 10px auto;
 }
 
-.carousel ul {
+.hc-carousel-ul {
     padding: 0;
+    white-space: nowrap;
+    margin: 0;
 }
 
-.carousel li {
+.hc-carousel-ul li {
     list-style: none;
     display: inline-block;
     padding: 0;
     margin: 0 10px;
 }
 
-.carousel li:last-child {
-    margin-right: 0;
+.hc-carousel-ul li:first-child {
+    margin-left: 15px;
 }
 
-.carousel a {
+.hc-carousel-ul a {
     display: block;
     width: 170px;
     height: 90px;
     background: url("../img/third_sprite.png") 30px -40px no-repeat #f8f8f8;
     border-radius: 5px;
+
+}
+
+.hc-carousel-ul a.color {
+    background-color: #2dc8c1;
+}
+
+/* Happy clients carousel quaries */
+.hc-carousel-wrapper {
+    width: auto;
+}
+
+@media (min-width: 300px) {
+    .hc-carousel-wrapper {
+        width: 200px; /*show one client in carousel*/
+    }
+}
+
+@media (min-width: 430px) {
+    .hc-carousel-wrapper {
+        width: 395px; /*show two clients in carousel*/
+    }
+}
+
+@media (min-width: 630px) {
+    .hc-carousel-wrapper {
+        width: 590px; /*show three clients in carousel*/
+    }
+}
+
+@media (min-width: 992px) {
+    .hc-carousel-wrapper {
+        width: 785px; /*show four clients in carousel*/
+    }
+}
+
+@media (min-width: 1200px) {
+    .hc-carousel-wrapper {
+        width: auto; /*show six clients in carousel*/
+    }
 }
 
 /*-------------------------------------new FOOTER*/
@@ -732,6 +772,7 @@ ul > li > a > i {
 .pill-4{
     text-align: justify;
     padding: 45px 0;
+
 }
 
 .pill-1 span {
