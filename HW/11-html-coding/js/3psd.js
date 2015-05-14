@@ -1,97 +1,152 @@
-/*сначала определить ширину карусели*/
+/*define all variables*/
+var dotStep; // for global scope [use in setDotStep(), prevSlide and nextSlide]
+var carouselWrapperWidth = $(".carouselWrapperWidth").innerWidth(); //for setDotStep()
+var hiddenSlides; //for setDotStep()
 
-var carouselWidth, currentCarouselWidth;
-carouselWidth = $(".hc-carousel-wrapper").innerWidth();
-currentCarouselWidth = carouselWidth;
+var prevSlide, nextSlide;
+var dotMarginLeft, carouselMarginLeft; // for global scope [use in prevSlide and nextSlide]
 
-(function () {
-/*    console.log('carouselWidth = ' + carouselWidth);
-    console.log('currentCarouselWidth = ' + currentCarouselWidth);*/
-}());
 
-/*определим кол-во элементов в каруселе и установим максимальное значение для верчения карусели*/
-var hiddenSlides = $('.hc-carousel-ul li').length;
-var indicatorValue;
-(function () {
-    switch (carouselWidth) {
-        case 200:
-            /*console.log('carouselWidth = 200');*/
+/*functions for carousel*/
+function setDotStep() {
+    hiddenSlides = $('.hc-carousel-ul li').length;
+    switch (carouselWrapperWidth) {
+        case 190:
             hiddenSlides -= 1;
-            /*return hiddenSlides;*/
+            console.log('case 1');
             break;
-        case 395:
-            /*console.log('carouselWidth = 395');*/
+        case 380:
             hiddenSlides -= 2;
-            /*return hiddenSlides;*/
+            console.log('case 2');
             break;
-        case 590:
-            /*console.log('carouselWidth = 590');*/
+        case 570:
             hiddenSlides -= 3;
-            /*return hiddenSlides;*/
+            console.log('case 3');
             break;
-        case 785:
-            /*console.log('carouselWidth = 785');*/
+        case 760:
             hiddenSlides -= 4;
-            /*return hiddenSlides;*/
+            console.log('case 4');
             break;
-        case 1170:
-            /*console.log('carouselWidth = 1170');*/
+        case 1140:
             hiddenSlides -= 6;
-            /*return hiddenSlides;*/
+            console.log('case 6');
             break;
         default:
-            /*console.log('нестандартный размер');*/
+        console.log('something wrong with .carouselWrapperWidth {width}');
+            return false
     }
-    indicatorValue = 100/hiddenSlides;
-/*    console.log('кол-во спрятаных слайдов = ' + hiddenSlides);
-    console.log('% для изменения индикатора = ' + indicatorValue);*/
-}());
+    dotStep = 100 / hiddenSlides;
+};
 
-var newLeftValue, prevSlide, nextSlide;
-/*define main variables*/
-var dotIndicator = '0%';
-var leftValue = '0px';
-document.getElementById("hc-indicator").style.marginLeft = dotIndicator;
-$(".hc-carousel-resizer").css('marginLeft', leftValue);
-
+function setValues() {
+    dotMarginLeft = '0%';
+    carouselMarginLeft = '0px';
+    document.getElementById("hc-indicator").style.marginLeft = dotMarginLeft;
+    $(".carouselHappyInner").css('marginLeft', carouselMarginLeft);
+    setDotStep();
+}
 
 
 prevSlide = function () {
-    if (parseInt(dotIndicator) <= 0) {
-        /*console.log('новое значение равно нулю -- тупик = ' + dotIndicator);*/
+    if (parseInt(dotMarginLeft) <= 0) { //stop slide and reset counter after meet zero
+        prevSlideCounter = 0;
     }
     else {
-        dotIndicator = parseFloat(dotIndicator) - indicatorValue;
-        dotIndicator += '%';
-        /*console.log('новое значение dotIndicator = ' + dotIndicator);*/
-        document.getElementById("hc-indicator").style.marginLeft = dotIndicator;
-        /*console.log('сейчас значение dotIndicator= ' + dotIndicator);*/
-        /*устанавливает значение dotIndicator*/
-        newLeftValue = parseInt(leftValue) + 195;
-        newLeftValue += "px";
-        leftValue = newLeftValue;
-        $(".hc-carousel-resizer").css('margin-left', leftValue);
-
+        /*set dot margin*/
+        dotMarginLeft = (parseFloat(dotMarginLeft) - dotStep) + '%';
+        document.getElementById("hc-indicator").style.marginLeft = dotMarginLeft;
+        /*set carousel margin*/
+        carouselMarginLeft = (parseInt(carouselMarginLeft) + 190) + 'px';
+        $(".carouselHappyInner").css('margin-left', carouselMarginLeft);
     }
 };
 
 nextSlide = function () {
-    if (parseInt(dotIndicator) >= 97) {
-        /*console.log('новое значение margin близко к 100 -- тупик = ' + dotIndicator);*/
+    if (parseInt(dotMarginLeft) >= 97) { //stop slide and reset counter after meet 100
+        nextSlideCounter = 0;
     }
     else {
-        dotIndicator = parseFloat(dotIndicator) + indicatorValue;
-        dotIndicator += '%';
-        /*console.log('новое значение dotIndicator = ' + dotIndicator);*/
-        document.getElementById("hc-indicator").style.marginLeft = dotIndicator;
-        /*console.log('сейчас значение dotIndicator= ' + dotIndicator);*/
-        /*устанавливает значение dotIndicator*/
-        newLeftValue = parseInt(leftValue) - 195;
-        newLeftValue += "px";
-        leftValue = newLeftValue;
-        $(".hc-carousel-resizer").css('margin-left', leftValue);
+        /*set dot margin*/
+        dotMarginLeft = (parseFloat(dotMarginLeft) + dotStep) + '%';
+        document.getElementById("hc-indicator").style.marginLeft = dotMarginLeft;
+        /*set carousel margin*/
+        carouselMarginLeft = (parseInt(carouselMarginLeft) - 190) + 'px';
+        $(".carouselHappyInner").css('margin-left', carouselMarginLeft);
     }
 };
 
-$('#hc-btn-left').click(prevSlide);
-$('#hc-btn-right').click(nextSlide);
+function resize() { //reset values when changing number of visible slides
+    var currentCarouselWrapperWidth = $('.carouselWrapperWidth').innerWidth();
+    if (carouselWrapperWidth != currentCarouselWrapperWidth) {
+        setValues();
+        carouselWrapperWidth = $('.carouselWrapperWidth').innerWidth();
+    }
+    else {
+        return false
+    }
+}
+
+
+/*first load*/
+(function () {
+    console.log('first load');
+    setDotStep();
+    setValues();
+    $('#hc-btn-left').click(prevSlide);
+    $('#hc-btn-right').click(nextSlide);
+    window.onresize = resize;
+}());
+
+
+/*
+
+
+####PROBLEM OF REMEMBER CURRENT SLIDE-CLIENT BEFORE RESIZING (may be its not important)#####
+
+*/
+/*code for define all variables*//*
+
+var prevSlideCounter, nextSlideCounter; //set params for counters
+
+*/
+/*code for functions for carousel*//*
+
+function setValues() {
+    prevSlideCounter = 0;
+    nextSlideCounter = 0;
+}
+
+prevSlide = function () {
+    */
+/*changing click counters*//*
+
+    prevSlideCounter++;
+    nextSlideCounter--;
+}
+
+nextSlide = function () {
+    */
+/*changing click counters*//*
+
+    nextSlideCounter++;
+    prevSlideCounter--;
+}
+
+
+function resetDotIndicator() {
+    */
+/*reset dotMarginLeft *//*
+
+    if (prevSlideCounter == 0 && nextSlideCounter == 0) {
+        console.log('ничего не изменилось счётчики по нулям');
+    }
+    if (prevSlideCounter > 0 && nextSlideCounter > 0) {
+        console.log('оба индикатора больше нуля- сложный случай');
+    }
+    if (prevSlideCounter > 0 && nextSlideCounter <= 0) {
+        console.log('листал назад но ниразу вперед не листал');
+    }
+    if (prevSlideCounter <= 0 && nextSlideCounter > 0) {
+        console.log('листал ВПЕРЕД но ниразу назад не листал');
+    }
+}*/
