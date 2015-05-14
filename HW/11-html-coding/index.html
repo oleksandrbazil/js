@@ -2,74 +2,121 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.css"/>
     <link rel="stylesheet" href="css/third.css"/>
-    <link rel="stylesheet" href="./css/bootstrap.css"/>
-    <script src="./js/bootstrap.js"></script>
-    <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">-->
     <link rel="stylesheet" href="css/font-awesome.css"/>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>HTML coding</title>
 </head>
 <body>
-<div class="new-header container-fluid">
+
+<div class="modus-header container-fluid">
     <div class="container">
-        <div class="row">
-            <div class="logo col-xs-12 col-sm-12 col-md-3 col-lg-2">MODUSversus</div>
-            <div class="navigation col-xs-12 col-sm-12 col-md-9 col-lg-10">
-                <ul class="" id="nav">
-                    <li><a href="#">home</a></li>
-                    <li><a href="#">about</a></li>
-                    <li><a href="#">services</a></li>
-                    <li><a href="#"><i class="fa fa-angle-down"></i> portfolio</a>
-                        <ul>
-                            <li><a href="#"><i class="fa fa-angle-right"></i>Portfolio 2 column page</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i>Portfolio 2 column page</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i>Portfolio 2 column page</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">blog</a></li>
-                    <li><a href="#">features</a></li>
-                    <li><a href="#">contacts</a></li>
-                    <li><a href="#"><i class="fa fa-search"></i></a></li>
-                </ul>
+        <nav class="navbar navbar-default col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="container">
+                <a class="navbar-brand" href="#">MODUSversus</a>
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <!--<a class="navbar-brand modus-logo" href="#">MODUSversus</a>-->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#m-id-menu">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="m-id-menu">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">home</a></li>
+                        <li><a href="#">about</a></li>
+                        <li><a href="#">services</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false">
+                                <i class="fa fa-angle-down"></i>portfolio</a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#"><i class="fa fa-angle-right"></i>Portfolio 2 column page</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i>Portfolio 2 column page</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i>Portfolio 2 column page</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">blog</a></li>
+                        <li><a href="#">features</a></li>
+                        <li><a href="#">contacts</a></li>
+                        <li><a href="#"><i class="fa fa-search"></i></a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
             </div>
-        </div>
+            <!-- /.container-fluid -->
+        </nav>
     </div>
 </div>
-<div class="new-home container-fluid">
-    <div class="row"> <!--for fix sub-ul visibility of navigation-->
-        <i class="fa fa-angle-double-left"></i>
-        <i class="fa fa-angle-double-right"></i>
+
+
+<div class="top-carousel container-fluid">
+
+    <div class="row">
+        <i class="fa fa-angle-double-left" href="#topCarousel" role="button" data-slide="prev"></i>
+        <i class="fa fa-angle-double-right" href="#topCarousel" role="button" data-slide="next"></i>
 
         <div class="container">
-            <div class="row">
-                <div class="slider-wrapper col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="slider">
-                        <div>VESTIBULUM</div>
+            <div id="topCarousel" class="carousel slide" data-ride="carousel">
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active slide">
+                        <div class="slide-header">VESTIBULUM</div>
                         <br/>
 
-                        <div> Maecenas tincidunt, augue et rutrum condimentum, <br/>
+                        <div class="slide-body"> Maecenas tincidunt, augue et rutrum condimentum, <br/>
+                            libero lectus mattis orci, ut commodo.
+                        </div>
+                    </div>
+
+                    <div class="item slide slide2">
+                        <div class="slide-header">VESTIBULUM</div>
+                        <br/>
+
+                        <div class="slide-body"> Maecenas tincidunt, augue et rutrum condimentum, <br/>
+                            libero lectus mattis orci, ut commodo.
+                        </div>
+                    </div>
+
+                    <div class="item slide slide3">
+                        <div class="slide-header">VESTIBULUM</div>
+                        <br/>
+
+                        <div class="slide-body"> Maecenas tincidunt, augue et rutrum condimentum, <br/>
                             libero lectus mattis orci, ut commodo.
                         </div>
                     </div>
                 </div>
+
+                <!-- Indicators -->
+                <div class="carousel-indicators">
+                    <div data-target="#topCarousel" data-slide-to="0" class="active"></div>
+                    <div data-target="#topCarousel" data-slide-to="1"></div>
+                    <div data-target="#topCarousel" data-slide-to="2"></div>
+                </div>
+
             </div>
         </div>
     </div>
-    <div class="row slider-place">
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
+
 </div>
 
-<div class="new-intro container-fluid">
+
+<div class="intro container-fluid">
     <div class="container">
         <div class="row">
-            <div class="intro-text col-xs-12 col-sm-8 col-md-9 col-lg-9">
-                <span>Some of our top services</span>
-                <span>Ut eleifend libero sed neque rhoncus consequat. Maecenas tincidunt,augue et rutrum condimentum, libero lectus mattis orci, ut commodo.</span>
+            <div class="intro-box col-xs-12 col-sm-8 col-md-9 col-lg-9">
+                <span class="intro-title">Some of our top services</span>
+                <span class="intro-text">Ut eleifend libero sed neque rhoncus consequat. Maecenas tincidunt,augue et rutrum condimentum, libero lectus mattis orci, ut commodo.</span>
             </div>
             <div class="intro-button col-xs-12 col-sm-4 col-md-3 col-lg-3">
                 <div>VIEW MORE</div>
@@ -78,61 +125,61 @@
     </div>
 </div>
 
-<div class="new-info container-fluid">
+<div class="info container-fluid">
     <div class="container">
         <div class="row">
 
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                <div class="new-info-box">
-                    <div class="new-content">
+                <div class="info-box">
+                    <div class="info-content">
                         <i class="fa fa-thumbs-o-up fa-4x"></i><br/>
                         <span>SUSPENDISSE</span>
 
                         <p>Quisque id tellus quis risus vehicula vehicula ut turpis. In eros nulla, placerat vitae at,
                             vehiculaut nunc.</p>
                     </div>
-                    <div class="new-info-box-btn">read more</div>
+                    <div class="info-box-btn">read more</div>
                 </div>
             </div>
 
 
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                <div class="new-info-box">
-                    <div class="new-content">
+                <div class="info-box">
+                    <div class="info-content">
                         <i class="fa fa-key fa-4x"></i><br/>
                         <span>MAECENAS</span>
 
                         <p>Ut eleifend libero sed neque rhoncus consequat. Maecenas tincidunt, augue et rutrum
                             condimentum, libero lectus mattis orci, ut commodo.</p>
                     </div>
-                    <div class="new-info-box-btn">read more</div>
+                    <div class="info-box-btn">read more</div>
                 </div>
             </div>
 
 
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                <div class="new-info-box">
-                    <div class="new-content">
+                <div class="info-box">
+                    <div class="info-content">
                         <i class="fa fa-flag fa-4x"></i><br/>
                         <span>ALIQUAM</span>
 
                         <p>Vivamus eget ante bibendum arcu vehicula ultricies. Integer venenatis mattis nisl, vitae
                             pulvinar duitempor non.</p>
                     </div>
-                    <div class="new-info-box-btn">read more</div>
+                    <div class="info-box-btn">read more</div>
                 </div>
             </div>
 
 
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                <div class="new-info-box">
-                    <div class="new-content">
+                <div class="info-box">
+                    <div class="info-content">
                         <i class="fa fa-flask fa-4x"></i><br/>
                         <span>HABITASSE</span>
 
                         <p>Astehicula ultricies. Integer venenatis mattis nisl, vitae pulvinar dui tempor non.</p>
                     </div>
-                    <div class="new-info-box-btn">read more</div>
+                    <div class="info-box-btn">read more</div>
                 </div>
             </div>
         </div>
@@ -140,121 +187,136 @@
 </div>
 
 
-<div class="new-why container-fluid">
+<div class="why-content container-fluid">
     <div class="container">
+        <div class="row why-txt">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <span class="why-txt-slogan">WHY MODUS VERSUS?</span><br/>
+                <span>Capacitance cascading integer reflective interface data development high bus cache dithering transponder.</span>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="whyC col-xs-12 col-sm-10 col-sm-push-1 col-md-6 col-md-push-3 col-lg-6">
+                <img src="./img/third_img-lg.png" alt="center image"/>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        Curabitur quis nisl in leo euismod venenatis eu in diam. Etiam auctor diam pellentesque lectus
+                        <a href="#">vehicula mattis</a>.Nulla ac massa at dolor condimentum eleifend vitae vitae urna.
+                    </div>
+                </div>
+                <div class="row whyC-boxes">
+                    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-3">
+                        <div class="whyC-box">
+                            <div class="whyC-box-imgs">50</div>
+                            <div>SUSPENDISSE</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-3">
+                        <div class="whyC-box">
+                            <div class="whyC-box-imgs whyC-box-img-2">70</div>
+                            <div>MAECENAS</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-4 col-lg-3">
+                        <div class="whyC-box">
+                            <div class="whyC-box-imgs whyC-box-img-3">80</div>
+                            <div>ALIQUAM</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-12 col-lg-3">
+                        <div class="whyC-box">
+                            <div class="whyC-box-imgs whyC-box-img-4">100</div>
+                            <div>HABITASS</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="whyL col-xs-12 col-sm-6 col-md-3 col-md-pull-6 col-lg-3">
+                <img src="./img/third_img-sm.png" alt="left image"/>
+
+                <div class="why-block-table">
+                    <div class="whyL-row-header">Why Choose Us ?</div>
+                    <div class="whyL-row-content">
+                        <ul>
+                            <li><i class="fa fa-arrow-right"></i>Quisque at massa ipsum</li>
+                            <li><i class="fa fa-arrow-right"></i>Maecenas a lorem augue, egestas</li>
+                            <li><i class="fa fa-arrow-right"></i>Cras vitae felis at lacus eleifend</li>
+                            <li><i class="fa fa-arrow-right"></i>Etiam auctor diam pellentesque</li>
+                            <li><i class="fa fa-arrow-right"></i>Nulla ac massa at dolor</li>
+                            <li><i class="fa fa-arrow-right"></i>Condimentum eleifend vitae vitae</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="whyR col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                <img src="./img/third_img-sm.png" alt="right image"/>
+
+                <div class="why-block-table">
+                    <div class="whyR-row-header">What Client’s Say ?</div>
+                    <div class="whyR-row-content">
+                        <div>Curabitur quis nisl in leo euismod venenatis eu in diam. Etiam auctor diam pellentesque
+                            lectus vehicula mattis. Nulla ac massa at dolor condimentum
+                        </div>
+                    </div>
+                    <div class="whyR-row-author"><span>John Dou</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="new-hc container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="new-hc-name col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                Our Happy Clients
+            </div>
+            <div class="new-hc-btns  col-xs-6 col-sm-3 col-sm-push-6 col-md-2 col-md-push-8 col-lg-2 col-lg-push-8">
+                <i class="fa fa-angle-left fa-2x" id="hc-btn-left"></i>
+                <i class="fa fa-angle-right fa-2x" id="hc-btn-right"></i>
+            </div>
+            <div class="new-hc-line col-xs-12 col-sm-6 col-sm-pull-3 col-md-8 col-md-pull-2 col-lg-8 col-lg-pull-2">
+                <div>
+                    <i id="hc-indicator"></i>
+                </div>
+            </div>
+
+        </div>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <span>WHY MODUS VERSUS?</span><br/>
-                <span>Capacitance cascading integer reflective interface data development high bus cache dithering transponder.</span>
-                <img src="./img/third_windows.png" alt="prove images"/>
+                <div class="carouselWrapperWidth">
+                    <div class="carouselHappyInner">
+                        <ul class="hc-carousel-ul">
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                            <li><a href="#" class="color"></a></li>
+
+                            <li><a href="#"></a></li>
+                            <li><a href="#" class="color"></a></li>
+                            <li><a href="#"></a></li>
+                            <li><a href="#" class="color"></a></li>
+                            <li><a href="#"></a></li>
+                            <li><a href="#" class="color"></a></li>
+                            <li><a href="#"></a></li>
+                            <li><a href="#" class="color colorLast"></a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="new-choose container-fluid">
+<div class="tf-footer container-fluid">
     <div class="container">
         <div class="row">
-            <div class="new-choose-left col-xs-12 col-sm-12 col-md-4 col-lg-3">
-                <span>Why Choose Us ?</span>
-                <ul>
-                    <li><i class="fa fa-arrow-right"></i>Quisque at massa ipsum</li>
-                    <li><i class="fa fa-arrow-right"></i>Maecenas a lorem augue, egestas</li>
-                    <li><i class="fa fa-arrow-right"></i>Cras vitae felis at lacus eleifend</li>
-                    <li><i class="fa fa-arrow-right"></i>Etiam auctor diam pellentesque</li>
-                    <li><i class="fa fa-arrow-right"></i>Nulla ac massa at dolor</li>
-                    <li><i class="fa fa-arrow-right"></i>Condimentum eleifend vitae vitae</li>
-                </ul>
-            </div>
-            <div class="new-choose-center col-xs-12 col-sm-12 col-md-4 col-lg-6">
-                  <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            Curabitur quis nisl in leo euismod venenatis eu in diam. Etiam auctor diam pellentesque lectus
-                            <a href="#">vehicula mattis</a>.Nulla ac massa at dolor condimentum eleifend vitae vitae urna.
-                        </div>
-                    </div>
-                    <div class="row load-indicators">
-                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                            <div class="load-box">
-                                <div class="load-box-imgs">50</div>
-                                <div>SUSPENDISSE</div>
-                            </div>
-                        </div>
-                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                            <div class="load-box">
-                                <div class="load-box-imgs load-box-img-2">70</div>
-                                <div>MAECENAS</div>
-                            </div>
-                        </div>
-                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                            <div class="load-box">
-                                <div class="load-box-imgs load-box-img-3">80</div>
-                                <div>ALIQUAM</div>
-                            </div>
-                        </div>
-                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                            <div class="load-box">
-                                <div class="load-box-imgs load-box-img-4">100</div>
-                                <div>HABITASS</div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="new-choose-right col-xs-12 col-sm-12 col-md-4 col-lg-3">
-                <span>What Client’s Say ?</span>
-                <div class="choose-comment">
-                    Curabitur quis nisl in leo euismod venenatis eu in diam. Etiam auctor diam pellentesque lectus
-                    vehicula mattis. Nulla ac massa at dolor condimentum
-                </div>
-                <span>John Dou</span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-    <section class="third clients clear">
-        <div class="hc-nav">
-            <div class="hc-nav-name">Our Happy Clients</div>
-            <div class="hc-nav-line">
-                <div>
-                    <i></i>
-                </div>
-            </div>
-            <div class="hc-nav-btns">
-                <div class="hc-nav-btn hc-nav-btn-l"><i class="fa fa-angle-left fa-2x"></i></div>
-                <div class="hc-nav-btn"><i class="fa fa-angle-right fa-2x"></i></div>
-            </div>
-
-        </div>
-        <div class="happyClients-wrapper">
-            <div class="happyClients">
-                <ul>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                </ul>
-            </div>
-        </div>
-
-    </section>
-</div>
-<div class="footer">
-
-    <div class="footer-top clear">
-        <div class="footer-top-wrapper">
-            <div class="pill-1">
+            <div class="pill-1 col-xs-12 col-sm-12 col-md-4 col-lg-4">
                 <span>MODUSversus</span>
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, blanditiis cupiditate
@@ -272,65 +334,82 @@
                     </tr>
                 </table>
             </div>
-            <div class="pill-2">
-                <span>Company</span>
-                <ul>
-                    <li><i class="fa fa-angle-right"></i>About</li>
-                    <li><i class="fa fa-angle-right"></i>FAQ</li>
-                    <li><i class="fa fa-angle-right"></i>Contact</li>
-                    <li><i class="fa fa-angle-right"></i>Terms</li>
-                    <li><i class="fa fa-angle-right"></i>Privacy</li>
-                    <li><i class="fa fa-angle-right"></i>Testimonials</li>
-                </ul>
-            </div>
-            <div class="pill-3">
-                <span>Community</span>
-                <ul>
-                    <li><i class="fa fa-angle-right"></i>Blog</li>
-                    <li><i class="fa fa-angle-right"></i>Forum</li>
-                    <li><i class="fa fa-angle-right"></i>Support</li>
-                    <li><i class="fa fa-angle-right"></i>Terms</li>
-                    <li><i class="fa fa-angle-right"></i>Newsletter</li>
-                </ul>
-            </div>
-            <div class="pill-4">
-                <span class="fblog">from the <span>blog</span></span>
-                <table>
-                    <tr>
-                        <td><i class="fa fa-picture-o fa-2x"></i></td>
-                        <td>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            <span class="date">26 May 2013</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><i class="fa fa-picture-o fa-2x"></i></td>
-                        <td>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            <span class="date">26 May 2013</span>
-                        </td>
-                    </tr>
-                </table>
 
+
+            <div class="pill-2 col-xs-6 col-sm-6 col-md-2 col-lg-2">
+                <div>
+                    <span>Company</span>
+                    <ul>
+                        <li><i class="fa fa-angle-right"></i>About</li>
+                        <li><i class="fa fa-angle-right"></i>FAQ</li>
+                        <li><i class="fa fa-angle-right"></i>Contact</li>
+                        <li><i class="fa fa-angle-right"></i>Terms</li>
+                        <li><i class="fa fa-angle-right"></i>Privacy</li>
+                        <li><i class="fa fa-angle-right"></i>Testimonials</li>
+                    </ul>
+                </div>
             </div>
+            <div class="pill-3 col-xs-6 col-sm-6 col-md-2 col-lg-2">
+                <div>
+                    <span>Community</span>
+                    <ul>
+                        <li><i class="fa fa-angle-right"></i>Blog</li>
+                        <li><i class="fa fa-angle-right"></i>Forum</li>
+                        <li><i class="fa fa-angle-right"></i>Support</li>
+                        <li><i class="fa fa-angle-right"></i>Terms</li>
+                        <li><i class="fa fa-angle-right"></i>Newsletter</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pill-4 col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <span>from the <span>blog</span></span>
+
+                <div class="tf-table">
+                    <div class="tf-table-row">
+                        <div>
+                            <i class="fa fa-picture-o fa-2x"></i>
+                        </div>
+                        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            <div class="tf-date">26 May 2013</div>
+                        </div>
+                    </div>
+                    <div class="tf-table-row">
+                        <div>
+                            <i class="fa fa-picture-o fa-2x"></i>
+                        </div>
+                        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            <div class="tf-date">26 May 2013</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-    <div class="footer-bottom clear">
-        <div class="footer-bottom-wrapper">
-            <div class="copyrights">2013 ModusVersus</div>
-            <div class="follow">
-                <ul>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
 </div>
 
+<div class="bf-footer container-fluid">
+    <div class="container">
+        <div class="bf-table row">
+            <div class="bf-logo">2013 ModusVersus</div>
+
+            <ul class="bf-follow">
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+<!--link js files-->
+<script src="./js/jquery-2.1.4.js"></script>
+<script src="./js/bootstrap.js"></script>
+<script src="./js/3psd.js"></script>
+<script>
+
+</script>
 </body>
 </html>
 
