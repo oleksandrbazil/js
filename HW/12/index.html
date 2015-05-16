@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Web Storage</title>
+    <link rel="stylesheet" href="12.css"/>
+    <style>
+        body {
+            background: rgba(0,0,0,0.3);
+        }
+
+    </style>
+</head>
+<body>
+<div class="centrified">
+    <form>
+        <input type="text" name="client"/> <br/>
+        <input type="text" name="phone"/> <br/>
+        <button type="submit">Send</button>
+    </form>
+    <ul class="contactListUL"></ul>
+</div>
+
+
+<!--js-->
+<script src="../11-html-coding/js/jquery-2.1.4.js"></script>
+<script src="../11-html-coding/js/bootstrap.js"></script>
+<script src="12.js"></script>
+<script>
+    $(document).ready(function() {
+        var $form = $('form');
+        var $contactList = $('.contactListUL');
+        var storageContacts = JSON.parse(localStorage.getItem('contactList'));
+
+        if (!storageContacts) {
+            storageContacts = [];
+        }
+        else {
+            storageContacts.forEach(function(client){
+                $contactList.append("<li>" + client.firstName + " == " + client.phone + "</li>");
+            });
+        }
+
+
+console.log(storageContacts)
+        $form.on('submit', function(event) {
+            event.preventDefault();
+            var $firstName = $form.find("input[name='client']");
+            var $phone = $form.find("input[name='phone']");
+
+            var clientData = {
+                firstName: $firstName.val(),
+                phone: $phone.val()
+            };
+
+
+            storageContacts.push(clientData);
+
+            console.log(clientData);
+            $contactList.append("<li>" + clientData.firstName + " == " + clientData.phone + "</li>");
+
+            $firstName.val(''); // стирает поля ввода
+            $phone.val(''); // стирает из поля ввода
+
+
+            localStorage.setItem('contactList', JSON.stringify(storageContacts));
+
+
+
+
+            return false;
+        });
+    })
+</script>
+</body>
+</html>

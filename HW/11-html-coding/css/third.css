@@ -353,7 +353,7 @@ a {
 .info-box {
     position: relative;
     color: #777777;
-    height: 310px;
+    min-height: 310px;
     width: 270px;
     margin: 0 auto 80px auto;
     text-align: center;

@@ -58,13 +58,13 @@ a:hover {
     float: left;
 }
 
-.box-l ul {
+.box-l ol {
     margin: 0;
     padding-left: 20px;
 }
 
-.box-l > ul > li:hover {
-    color: rgba(0, 130, 250, 0.9);
+.box-l > ol > li:hover {
+    /*color: rgba(0, 130, 250, 0.9);*/
     cursor: pointer;
 }
 

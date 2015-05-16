@@ -7,6 +7,19 @@
         body {
             background: #eceff1;
         }
+        div {
+            margin: 200px auto;
+            border: 1px solid black;
+            background: rgba(0,0,0,0.1);
+            width: 200px;
+            height: auto;
+            padding: 20px;
+        }
+        div h3,
+        div p {
+            text-align: center;
+            color: #333333;
+        }
         ul {
             list-style:none;
             margin: 0;
@@ -75,11 +88,18 @@
             }
 
         }
+        .small > li{
+            text-indent: -9999px;
+            width: 30px;
+        }
     </style>
 </head>
 <body>
-<div>
-    <ul>
+
+<div onclick="hideli()">
+    <h3>Click on div</h3>
+    <p>or resize window to 767px</p>
+    <ul id="first-psd">
         <li><i></i>Profil</li>
         <li><i></i>Messages</li>
         <li><i></i>Contacts</li>
@@ -87,5 +107,20 @@
         <li><i></i>CSS-live</li>
     </ul>
 </div>
+<script>
+
+function hideli() {
+    var ul = document.getElementById("first-psd");
+    var ulx = ul.hasAttribute('class','small');
+    if ( ulx == false ) {
+        ul.setAttribute("class","small");
+    }
+    else {
+        ul.removeAttribute("class","small");
+    }
+}
+
+
+</script>
 </body>
 </html>
