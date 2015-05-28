@@ -5,70 +5,19 @@
     <title>AJAX запросы</title>
     <script src="../../library/jquery-2.1.4.min.js"></script>
     <script src="../../library/bootstrap-3.3.4-dist/js/bootstrap.js"></script>
-
+    <script src="./js/default.js"></script>
     <link rel="stylesheet" href="../../library/bootstrap-3.3.4-dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="./css/default.css"/>
     <link rel="stylesheet" href="../../library/bootstrap-3.3.4-dist/css/bootstrap-theme.css.map"/>
-    <style>
-        .usersList,
-        .usersList th {
-            text-align: center;
-        }
-        .modal-header,
-        .modal-body {
-            text-align: center;
-        }
-        .modal-body img {
-            width: 80%;
-            height: auto;
-        }
-        #cookieConsole {
-            content: "";
-            background: rgba(0,0,0,0.3);
-            color: #000000;
-            position: absolute;
-            left: 0;
-            top: 50%;
-            max-width: 15%;
-        }
-        .cookie-visits,
-        .cookie-clicks,
-        .cookie-answer {
-            font-weight: bold;
-            color: rgba(50,150,255,1);
-            background: rgba(0,0,0,0.5);
-            padding: 0 5px;
-            border-radius: 5px;
-        }
-        .cookie-clicks {
-            color: rgba(50,255,50,0.7);
 
-        }
-        .cookie-answer {
-            color: rgba(255,100,50,1);
-        }
-        .clear-cookies {
-            position: absolute;
-        }
-        .localStorage-visits,
-        .localStorage-clicks,
-        .localStorage-answer {
-            background: rgba(0,0,0,0.5);
-            color: #ffffff;
-            padding: 0 5px;
-            margin-left: 5px;
-            border-radius: 5px;
-        }
-        .inform-table td{
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header ajax-links">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -83,389 +32,114 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#staff">Our Staff</a></li>
+                <li><a href="#comments">Comments</a></li>
             </ul>
 
-            <ul class="nav cookie-nav navbar-right">
-                <li>Количество посещений <span class="cookie-visits"></span><span class="localStorage-visits"></span></li>
+            <ul class="nav cookie-nav navbar-right" id="cookie-ul-ID">
+                <li>Количество посещений <span class="cookie-visits"></span><span class="localStorage-visits"></span>
+                </li>
                 <li>Количество кликов <span class="cookie-clicks"></span><span class="localStorage-clicks"></span></li>
-                <li>Решение по гопнику: <span class="cookie-answer"></span><span class="localStorage-answer"></span></li>
+                <li>Решение по гопнику: <span class="cookie-answer"></span><span class="localStorage-answer"></span>
+                </li>
                 <button type="button" class="btn btn-primary clear-cookies">CLEAR COOKIES</button>
             </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
 </nav>
 <div class="container">
-
     <div class="row">
         <div id="content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <h1>This is the index page</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi corporis doloribus earum eos et eveniet facere, fugit inventore iste magnam nemo omnis perspiciatis, quae quasi, quidem quod sit tempora totam.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi corporis doloribus earum eos et eveniet facere, fugit inventore iste magnam nemo omnis perspiciatis, quae quasi, quidem quod sit tempora totam.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi corporis doloribus earum eos et eveniet facere, fugit inventore iste magnam nemo omnis perspiciatis, quae quasi, quidem quod sit tempora totam.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, consectetur dolores facere fugiat hic illo impedit iste itaque iure labore magnam quae rem rerum sit tempora vero voluptas! Neque, placeat!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi corporis doloribus earum eos et eveniet facere, fugit inventore iste magnam nemo omnis perspiciatis, quae quasi, quidem quod sit tempora totam.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi corporis doloribus earum eos et eveniet
+                facere, fugit inventore iste magnam nemo omnis perspiciatis, quae quasi, quidem quod sit tempora
+                totam.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi corporis doloribus earum eos et eveniet
+                facere, fugit inventore iste magnam nemo omnis perspiciatis, quae quasi, quidem quod sit tempora
+                totam.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi corporis doloribus earum eos et eveniet
+                facere, fugit inventore iste magnam nemo omnis perspiciatis, quae quasi, quidem quod sit tempora totam.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, consectetur dolores facere fugiat hic illo
+                impedit iste itaque iure labore magnam quae rem rerum sit tempora vero voluptas! Neque, placeat!</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi corporis doloribus earum eos et eveniet
+                facere, fugit inventore iste magnam nemo omnis perspiciatis, quae quasi, quidem quod sit tempora
+                totam.</p>
         </div>
     </div>
 </div>
-<script>
- /* ############ FIRST OF ALL DEFINE FUNCTIONS FOR COOKIES AND MODAL PAGE ############*/
-    function getCookie(name) { //copy-past было бы круто рабозраться как выдираеться значение
-        var matches = document.cookie.match(new RegExp(
-                "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-        ));
-        return matches ? decodeURIComponent(matches[1]) : undefined;
-    }
-
-    function setCookie(name, value, count, countValue) {
-        if (name == undefined || value == undefined) {
-            return false;
-        } else {
-            var newExpires = new Date();
-            newExpires.setFullYear(newExpires.getFullYear() + 2);
-            newExpires = newExpires.toUTCString();
-
-            if (count == 'count') {
-                var newValue =  parseInt(getCookie(name)) + parseInt(countValue);
-                document.cookie = ( name + '=' + newValue + '; expires =' + newExpires);
-            } else {
-                document.cookie = (name + '=' + value + '; expires=' + newExpires);
-            }
-        }
-    }
-
-    function updateIndicators () {
-        $('.cookie-visits').text(getCookie('visits'));
-        $('.cookie-clicks').text(getCookie('clicks'));
-        $('.cookie-answer').text(getCookie('answer'));
-        $('.localStorage-visits').text(localStorage.visits);
-        $('.localStorage-clicks').text(localStorage.clicks);
-        $('.localStorage-answer').text(localStorage.answer);
-    }
-
-    function delCookie (name) {
-        var dateCookie = new Date();
-        dateCookie = dateCookie.toUTCString();
-        document.cookie = (name+'=; expires='+dateCookie);
-    }
-    function dellAllCookies () {
-        delCookie('visits');
-        delCookie('clicks');
-        delCookie('answer');
-    }
-    function localStorageCounter (name) {
-        var value = parseInt(localStorage.getItem(name));
-        value += 1;
-        localStorage.setItem(name,value);
-    }
-    function informTable () {
-
-        addSimpleModul();
-        var popup = $('.modal.fade');
-        popup.attr('id','information');
-        $('#myModalLabel').text('Вам доступна следующая информация');
-        $('#information .modal-body').html('');
-        $('#information .btn-primary').text('Спасибо');
-        $('#information .btn-default').text('Не интересует');
-
-
-        var newInformDiv = document.createElement('table');
-        newInformDiv.setAttribute('class','inform-table table');
-        function localStorageVariable () {
-            var tdString = '';
-            for (var i = 0; i <= localStorage.length; i++) {
-                var key = localStorage.key(i);
-                (key == null)? console.log('wrong key'): tdString += ('<tr><td colspan="2">' + key + '</td><td colspan="2">' + localStorage[key] + '</td><tr>');
-            }
-            return tdString;
-        }
-        function enECMA () {
-            if (navigator.javaEnabled()) {
-                return 'доступен'
-            } else {
-                return 'недоступен'}
-        };
-        function enCookie () {
-            if (navigator.cookieEnabled) {
-                return 'доступны'
-            } else {
-                return 'недоступны'}
-        };
-        newInformDiv.innerHTML =
-                '<tr class="info"><th colspan="2">Параметр</th> <th colspan="2">Значение</th></tr>' +
-                '<tr class="success"><td colspan="4">LOCAL STORAGE [KEY = VALUE]</td></tr>' +
-                localStorageVariable () +
-                '<tr class="success"><td colspan="4">NAVIGATOR options</td></tr>' +
-                '<tr><td colspan="2">User Agent</td> <td colspan="2">' + navigator.userAgent + '</td></tr>' +
-                '<tr><td colspan="2">User Language</td> <td colspan="2">' + navigator.language + '</td></tr>' +
-                '<tr class="success"><td colspan="4">ENEBLING  options</td></tr>' +
-                '<tr><td colspan="2">ECMA Script</td> <td colspan="2">' + enECMA() + '</td></tr>' +
-                '<tr><td colspan="2">Cookie </td> <td colspan="2">' + enCookie() + '</td></tr>' +
-                '<tr class="success"><td colspan="4">DISPLAY PARAMETERS</td></tr>' +
-                '<tr><td>Device width, px</td> <td>' + window.outerWidth +
-                '</td><td>Screen width, px</td><td>' + screen.width + '</td>' +
-                '<tr><td>Device height, px</td> <td>' + window.outerHeight +
-                '</td><td>Screen height, px</td> <td>' + screen.height + '</td></tr>'
-        ;
-
-        $('#information .modal-body').append(newInformDiv);
-
-        popup.modal('show');
-    }
-
- function addSimpleModul () {
-     /*1 уровень*/
-     var modul = document.createElement("div");
-     $(modul).attr('class', 'modal fade');
-     $(modul).attr('tabindex','-1');
-     $(modul).attr('role','dialog');
-     $(modul).attr('aria-labelledby','myModalLabel');
-     $(modul).attr('aria-hidden','true');
-
-     /*2 уровень*/
-     var modul_dialig = document.createElement("div");
-     $(modul_dialig).attr('class', 'modal-dialog');
-     modul.appendChild(modul_dialig);
-
-     /*3 уровень*/
-     var modul_content = document.createElement("div");
-     $(modul_content).attr('class', 'modal-content');
-     modul_dialig.appendChild(modul_content);
-
-     /*4.1 уровень*/
-     var modul_header = document.createElement("div");
-     $(modul_header).attr('class', 'modal-header');
-
-     /*4.1.1-кнопка уровень*/
-     var button_close = document.createElement('Button');
-     $(button_close).attr('type','button');
-     $(button_close).attr('class','close');
-     $(button_close).attr('data-dismiss','modal');
-     $(button_close).attr('aria-label','close');
-
-     var button_close_span = document.createElement('span');
-     $(button_close_span).attr('aria-hidden','true');
-     $(button_close_span).html('\&times');
-     button_close.appendChild(button_close_span);
-     modul_header.appendChild(button_close);
-
-     /*4.1.2-titile уровень*/
-     var header_title = document.createElement('h4');
-     $(header_title).attr('class','modal-title');
-     $(header_title).attr( 'id','myModalLabel');
-
-     modul_header.appendChild(header_title);
-     modul_content.appendChild(modul_header);
-
-     /*4.2 уровень*/
-     var modul_body = document.createElement("div");
-     $(modul_body).attr('class', 'modal-body');
-     modul_content.appendChild(modul_body);
-
-     /*4.3 уровень*/
-     var modul_footer = document.createElement("div");
-     $(modul_footer).attr('class', 'modal-footer');
-
-     /*4.3.1-нопка закрыть */
-     var button_ft_close = document.createElement('Button');
-     $(button_ft_close).attr('type','button');
-     $(button_ft_close).attr('class','btn btn-default');
-     $(button_ft_close).attr('data-dismiss','modal');
-     modul_footer.appendChild(button_ft_close);
-
-     /*4.3.2-кнопка сохранить */
-     var button_ft_save = document.createElement('Button');
-     $(button_ft_save).attr('type','button');
-     $(button_ft_save).attr('class','btn btn-primary');
-     $(button_ft_save).attr('data-dismiss','modal');
-
-     modul_footer.appendChild(button_ft_save);
-     modul_content.appendChild(modul_footer);
-
-     document.body.appendChild(modul);
- }
-
-
-/* ########## WORKING WITH COOKIES ########## */
-    $(document).ready(function () {
-
-        /* define counters*/
-        if (getCookie('clicks') == undefined || getCookie('visits') == undefined) {
-            setCookie('clicks', 0);
-            setCookie('visits', 0);
-            updateIndicators();
-        }
-        if (localStorage.clicks == undefined || localStorage.visits == undefined) {
-            localStorage.setItem('visits','0');
-            localStorage.setItem('clicks','0');
-            updateIndicators();
-        }
-
-        if (localStorage.clicks >= 15 || getCookie('visits') >= 5) {
-            if (getCookie('answerTable') !== 'Не интересует' || localStorage.answerTable !== 'Не интересует') {
-                /*console.log('Пользователю ИНТЕРЕСНА информация');*/
-                informTable ();
-            } else {
-                var buttonTable = document.createElement('button');
-                buttonTable.setAttribute('type','button');
-                buttonTable.setAttribute('class','btn btn-info showInfoTable');
-                buttonTable.setAttribute('style','position:absolute; top:150px; right:0');
-                buttonTable.innerText = ('Таблица');
-                document.body.appendChild(buttonTable);
-            }
-        } else {
-             console.log('еще не доcтиг просмотров или кликов');
-
-        }
-        /*counting VISITS variable*/
-        setCookie('visits','','count',1);
-        localStorageCounter('visits');
-
-        /*Checking answer for the dialog*/
-        if ( getCookie('answer') == undefined || getCookie('answer') == 'Игнорировал') {
-            addSimpleModul();
-            var popup = $('.modal.fade');
-            popup.attr('id','myModal');
-            $('#myModalLabel').text('ну здравствуй Братанчик!');
-            $('.modal.fade .modal-body').html('Братик, выручи, дай ровному пацанчику на пивасик! <img src="http://risovach.ru/upload/2012/09/templ_1346834364_orig_Tipichnyj-gopnik.jpg" alt="Гопник">');
-            $('.modal.fade .btn-primary').text('Дать денег');
-            $('.modal.fade .btn-default').text('Послать нахуй');
-            popup.modal('show');
-            $('#myModal').modal('show');
-        }
-
-        /* CLICKS Handler for cookies and localStorage*/
-        $(document).on('click', function (event) {
-            var target = event.target;
-            switch (true) {
-                case $(target).hasClass('clear-cookies'):
-                    dellAllCookies ();
-                    localStorage.clear();
-                    break;
-                case $(target).hasClass('showInfoTable'):
-                        $('#information').ex
-                    document.getElementById('#information')? $('#information').modal('show'): informTable ();
-                    break;
-                default:
-                    break;
-            }
-            setCookie('clicks','','count',1);
-            localStorageCounter('clicks');
-            updateIndicators();
-
-        });
-
-        $('#myModal').on('click', function (event) {
-            var target = event.target;
-            switch (true) {
-                case $(target).hasClass('btn-default'):
-                    setCookie('answer', 'Послал');
-                    localStorage.setItem('answer','Послал');
-                    break;
-                case $(target).hasClass('btn-primary'):
-                    setCookie('answer', 'Дал денег');
-                    localStorage.setItem('answer','Дал денег');
-                    break;
-                default:
-                    setCookie('answer', 'Игнорировал');
-                    localStorage.setItem('answer','Игнорировал');
-            }
-            setCookie('clicks','','count',1);
-            localStorageCounter('clicks');
-            updateIndicators();
-        });
-        $('#information').on('click', function (event) {
-            var target = event.target;
-            switch (true) {
-                case $(target).hasClass('btn-default'):
-                    setCookie('answerTable', 'Не интересует');
-                    localStorage.setItem('answerTable','Не интересует');
-                    break;
-                case $(target).hasClass('btn-primary'):
-                    setCookie('answerTable', 'Спасибо');
-                    localStorage.setItem('answerTable','Спасибо');
-                    break;
-                default:
-                    setCookie('answerTable', 'Игнорировал');
-                    localStorage.setItem('answerTable','Игнорировал');
-            }
-            console.log('321421');
-            setCookie('clicks','','count',1);
-            localStorageCounter('clicks');
-            updateIndicators();
-        });
-
-        updateIndicators(); //show indicators
-
-        /*FUNCTIONS FOR CHANGING URL OF SITE*/
-        $(window).on('hashchange', function () {
-            var hash = document.location.hash;
-            $.ajax({
-                url: 'pages/' + hash.replace('#', '') + '.html',
-                method: 'GET',
-                success: function (data) {
-                    $('#content').html(data);
-                    $('.navbar-nav li').removeClass('active');
-                    $('a[href=' + hash + ']').parent().addClass('active');
-                }
-            });
-        });
-
-        $(window).trigger('hashchange'); // Макс, если можешь дай комментарий по поводу этой комманды...
 
 
 
-        /*FUNCTIONS FOR CREATING TABLE FOR STAFF PAGE*/
-        $(document).on('click','#getUsers', function () {
-            var $getUsers = $('#getUsers');
-            $getUsers.text('Loading ...');
-            setTimeout(function () {
-                $.ajax({
-                    url: "api/users.json",
-                    method: "GET",
-                    success: function (data) {
-                        var $usersList = $('.usersList');
-                        $usersList.html('');
-                        $usersList.append(
-                                '<tr class="info"> <th>#</th>' +
-                                '<th> Прізвище </th>' +
-                                '<th> Ім\'я </th>' +
-                                '<th> Побатькові </th> </tr>'
-                        );
-                        for (var i in data) {
-                            if (i % 2 == 0 ) {
-                                $usersList.append(
-                                        '<tr>' +
-                                        '<td>' + (parseInt(i, 10) + 1) + '</td>' +
-                                        '<td>' + data[i].lastNameUKR + '</td>' +
-                                        '<td>' + data[i].firstNameUKR + '</td>' +
-                                        '<td>' + data[i].middleNameUKR + '</td>' +
-                                        '</tr>'
-                                );
-                            }
-                            else {
-                                $usersList.append(
-                                        '<tr class="active">' +
-                                        '<td>' + (parseInt(i, 10) + 1) + '</td>' +
-                                        '<td>' + data[i].lastNameUKR + '</td>' +
-                                        '<td>' + data[i].firstNameUKR + '</td>' +
-                                        '<td>' + data[i].middleNameUKR + '</td>' +
-                                        '</tr>'
-                                );
-                            }
-                        }
-                    },
-                    error: function () {
-                        alert('нихуяшечки');
-                        console.log(arguments);
-                    },
-                    complete: function () {
-                        $getUsers.text('Refresh');
-                    }
-                });
-            }, 1000);
 
-        })
-    });
-</script>
+<div id="commentBlock" class="container">
+    <div class="col-xs-8 col-xs-push-2 col-sm-8 col-md-8 col-lg-8">
+
+        <div id="savedComments">
+<!--            <div class="comment">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="comment-author col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <p>Name</p>
+                        <img src="http://www.avatar-zone.com/Avatars/Simpsons/Simpsons-15.gif" alt="author Name"/> <br/>
+                        <span class="badge">0</span>
+                        <br/>
+                        <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>
+                        <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></button>
+                    </div>
+                    <div class="comment-body col-xs-12 col-sm-6 col-md-9 col-lg-9">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci asperiores deleniti ipsum itaque iusto provident rem reprehenderit sequi veniam voluptatem? A aliquam nulla omnis quos reprehenderit sed tempore veniam voluptatum!
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias blanditiis distinctio in maiores. Accusamus aperiam asperiores at atque beatae inventore maxime nesciunt nobis optio praesentium provident sint, vel veritatis voluptas!
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consectetur, cumque doloremque eligendi error facere fugit labore laboriosam, maxime nulla numquam omnis quos ratione recusandae temporibus. Adipisci, iste, laborum? Enim.
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid explicabo illo ipsam nesciunt nisi non, obcaecati porro? Eligendi eos est, ex fugit iste nemo nesciunt nulla omnis optio saepe soluta.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="comment-author col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        Wed, 27 May 2015 07:29:57 GMT
+                    </div>
+                    <div class="comment-buttons col-xs-12 col-sm-6 col-md-9 col-lg-9">
+                        <button type="button" class="btn btn-default">ANSWER <span class="glyphicon glyphicon-check" aria-hidden="true"></span></button>
+                        <button type="button" class="btn btn-danger">DELETE <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+                        <button type="button" class="btn btn-info">HIDE <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span></button>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
+
+
+
+
+
+
+    </div>
+
+        <div class=" form-comment col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <form id="createComment">
+                <div class="comment-author col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                    <p>Имя пользователя:<span class="required">*</span></p>
+                    <input type="text" name="author" placeholder="Gomer Simpson" required="required"/>
+                    <img src="http://www.avatar-zone.com/Avatars/Simpsons/Simpsons-15.gif" alt="author avatar"/>
+                    <p>URL:</p>
+                    <input type="url" name="url" value="http://www.avatar-zone.com/Avatars/Simpsons/Simpsons-15.gif"/>
+                </div>
+                <div class="comment-body col-xs-12 col-sm-6 col-md-9 col-lg-9">
+                    <p class="bold">Прокомментируйсте запись:<span class="required">*</span></p>
+                    <textarea name="comment" rows="5" placeholder="Ваш комментарий" maxlength="900" required="required"></textarea>
+                    <div class="comment-buttons">
+                        <button type="button" class="btn btn-default">ANSWER TO <span class="glyphicon glyphicon-share-alt" aria-hidden="true" id="answerTo"></span>
+                            <input type="text" name="target" value=""/>
+                        </button>
+                        <button type="submit" class="btn btn-primary">SEND COMMENT</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+</div>
 
 </html>

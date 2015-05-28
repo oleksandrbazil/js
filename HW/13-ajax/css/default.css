@@ -1,0 +1,167 @@
+/*####################### STAFF PAGE ############################*/
+.usersList,
+.usersList th {
+    text-align: center;
+}
+
+
+/*#################################################################*/
+/*####################### MODAL PARAMS ############################*/
+.modal-header,
+.modal-body {
+    text-align: center;
+}
+
+.modal-body img {
+    width: 80%;
+    height: auto;
+}
+
+
+/*################################################################################*/
+/*####################### COOKIE/LOCAL STORAGE NAVBAR ############################*/
+#cookieConsole {
+    content: "";
+    background: rgba(0, 0, 0, 0.3);
+    color: #000000;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    max-width: 15%;
+}
+
+.cookie-visits,
+.cookie-clicks,
+.cookie-answer {
+    font-weight: bold;
+    color: rgba(50, 150, 255, 1);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0 5px;
+    border-radius: 5px;
+}
+
+.cookie-clicks {
+    color: rgba(50, 255, 50, 0.7);
+
+}
+
+.cookie-answer {
+    color: rgba(255, 100, 50, 1);
+}
+
+.clear-cookies {
+    position: absolute;
+}
+
+.localStorage-visits,
+.localStorage-clicks,
+.localStorage-answer {
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    padding: 0 5px;
+    margin-left: 5px;
+    border-radius: 5px;
+}
+
+
+/*###############################################################*/
+/*####################### TABLE INFO ############################*/
+.inform-table {
+    border: 1px solid #cccccc;
+}
+
+tr.success {
+    font-weight: bold;
+}
+
+.inform-table td,
+.inform-table th {
+    text-align: center;
+}
+
+
+/*####################################################################*/
+/*####################### COMMENTS PARAMS ############################*/
+
+#wrapperComments {
+    display: none;
+}
+.commentPage {
+    text-align: center;
+}
+
+.comment,
+.form-comment{
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #cccccc;
+    box-shadow: 0 0 5px 1px #cccccc;
+    display: table;
+    background: #ffffff;
+}
+
+.comment-author {
+    text-align: center;
+}
+
+.comment-body {
+    text-align: justify;
+}
+
+.comment-buttons {
+    text-align: right;
+}
+
+.comment-author img {
+    border: 5px double #cccccc;
+    width: 94px;
+    height: auto;
+    margin: 5px auto;
+}
+
+.comment-author p,
+.comment-author span,
+.comment-author button,
+.comment-body p {
+    margin: 5px auto;
+}
+.comment-author p,
+.comment-body p.bold {
+    font-weight: bold;
+}
+
+input[name="author"],
+input[name="url"] {
+    border: 1px dashed #cccccc;
+    text-align: center;
+    width: 120px;
+}
+
+input[name="target"] {
+    background: none;
+    border: 1px dashed black;
+    width: 120px;
+}
+
+textarea {
+    width: 100%;
+}
+.comment button,
+.form-comment button{
+    margin: 5px;
+}
+.required {
+    color: red;
+}
+
+.form-comment {
+    background: rgba(0,255,50, 0.15);
+    margin-bottom: 150px;
+}
+
+span.glyphicon {
+    z-index: 20;
+}
+button.btn {
+    z-index: 100;
+}
