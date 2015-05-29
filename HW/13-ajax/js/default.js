@@ -158,7 +158,38 @@ function bildInformPopUp() {
         var tdString = '';
         for (var i = 0; i <= localStorage.length; i++) {
             var key = localStorage.key(i);
-            (key == null) ? console.log() : tdString += ('<tr class="active"><td colspan="2">' + key + '</td><td colspan="2">' + localStorage[key] + '</td><tr>');
+            switch (true) {
+                case (key == null):
+                    console.log('key == null');
+                    break;
+                case (key == 'commentsStorage'):
+                    console.log('comment storage');
+                    var arr = JSON.parse(localStorage.commentsStorage);
+                    console.log(arr.length);
+                    tdString += ('<tr class="success"><td colspan="4">comment storage</td><tr>');
+
+                    var numberDeadComment = 0;
+                    for (var number = 0; number < arr.length; number++) {
+                        if (arr[number] == 'deleted') {
+                            numberDeadComment++;
+                        } else {
+                            tdString += ('<tr class="warning"><td colspan="4"> <strong>CommentID = ' + arr[number].commentID + '</strong></td><tr>');
+
+                            tdString += ('<tr class="active"><td colspan="2"> Автор комментария</td><td colspan="2"><strong>' + arr[number].commentAuthor+ '</strong></td><tr>');
+                            tdString += ('<tr class="active"><td colspan="2"> ссылка на аватар</td><td colspan="2">' + arr[number].commentUrl+ '</td><tr>');
+                            tdString += ('<tr class="active"><td colspan="2"> Текст Комментария</td><td colspan="2">' + arr[number].commentText+ '</td><tr>');
+                            tdString += ('<tr class="active"><td colspan="2"> Дата комментария</td><td colspan="2">' + arr[number].commentDate+ '</td><tr>');
+                            tdString += ('<tr class="active"><td colspan="2"> Кому адресован комментарий</td><td colspan="2">' + arr[number].commentTarget+ '</td><tr>');
+                            tdString += ('<tr class="active"><td colspan="2"> Рейтинг автора</td><td colspan="2">' + arr[number].commentBadge+ '</td><tr>');
+
+                        }
+                        console.log(arr[number]);
+                    }
+                    tdString += ('<tr class="danger"><td colspan="2"> Number of dead comments </td><td colspan="2">' + numberDeadComment + '</td><tr>');
+                    break;
+                default:
+                    tdString += ('<tr class="success"><td colspan="2">' + key + '</td><td colspan="2">' + localStorage[key].replace(/,/g,', ') + '</td><tr>');
+            }
         }
         return tdString;
     }
@@ -178,9 +209,9 @@ function bildInformPopUp() {
         }
     };
     newInformDiv.innerHTML =
+
         '<tr class="info"><th colspan="2" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">Параметр</th> <th colspan="2" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">Значение</th></tr>' +
         '<tr class="success"><td colspan="4">LOCAL STORAGE [KEY = VALUE]</td></tr>' +
-        localStorageVariable() +
         '<tr class="success"><td colspan="4">NAVIGATOR options</td></tr>' +
         '<tr class="active"><td colspan="2">User Agent</td> <td colspan="2">' + navigator.userAgent + '</td></tr>' +
         '<tr class="active"><td colspan="2">User Language</td> <td colspan="2">' + navigator.language + '</td></tr>' +
@@ -191,7 +222,8 @@ function bildInformPopUp() {
         '<tr class="active"><td class="col-xs-3 col-sm-3 col-md-3 col-lg-3" >Device width, px</td> <td class="col-xs-3 col-sm-3 col-md-3 col-lg-3">' + window.outerWidth +
         '</td><td class="col-xs-3 col-sm-3 col-md-3 col-lg-3">Screen width, px</td><td class="col-xs-3 col-sm-3 col-md-3 col-lg-3">' + screen.width + '</td>' +
         '<tr class="active"><td>Device height, px</td> <td>' + window.outerHeight +
-        '</td><td>Screen height, px</td> <td>' + screen.height + '</td></tr>';
+        '</td><td>Screen height, px</td> <td>' + screen.height + '</td></tr>' +
+        localStorageVariable() ;
     $('#informPopUp-ID .modal-body').append(newInformDiv);
 }
 function buildButtonInfo() {
