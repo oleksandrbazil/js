@@ -187,7 +187,7 @@ function bildInformPopUp() {
         '<tr class="success"><td colspan="4">ENEBLING  options</td></tr>' +
         '<tr class="active"><td colspan="2">ECMA Script</td> <td colspan="2">' + enECMA() + '</td></tr>' +
         '<tr class="active"><td colspan="2">Cookie </td> <td colspan="2">' + enCookie() + '</td></tr>' +
-        '<tr class="success"><td colspan="4">DISPLAY PARAMETERS</td></tr>' +
+        '<tr class="success"><td colspan="4">DiSPLAY PARAMETERS</td></tr>' +
         '<tr class="active"><td class="col-xs-3 col-sm-3 col-md-3 col-lg-3" >Device width, px</td> <td class="col-xs-3 col-sm-3 col-md-3 col-lg-3">' + window.outerWidth +
         '</td><td class="col-xs-3 col-sm-3 col-md-3 col-lg-3">Screen width, px</td><td class="col-xs-3 col-sm-3 col-md-3 col-lg-3">' + screen.width + '</td>' +
         '<tr class="active"><td>Device height, px</td> <td>' + window.outerHeight +
@@ -411,79 +411,206 @@ $(document).ready(function () {
 
 /*functions */
 
+function bildCommentJS(commentID, commentAUTHOR, commentURL, commentTEXT, commentDATE, commentTARGER, commentBADGE) {
+    if (commentID == undefined) {
+        console.log('комментарий c commentID = ' + commentID + ' удален');
+        return false;
+    } else {
+    var $savedComments = $('#savedComments');
+
+    /* 1 level */
+    var commentDiv = document.createElement('div');
+    commentDiv.setAttribute('class', 'comment');
+    commentDiv.setAttribute('commentid', commentID);
+
+    /* 2 level */
+    var firstRowDiv =  document.createElement('div');
+    firstRowDiv.setAttribute('class', 'col-xs-12 col-sm-12 col-md-12 col-lg-12');
+    var secondRowDiv = document.createElement('div');
+    secondRowDiv.setAttribute('class', 'col-xs-12 col-sm-12 col-md-12 col-lg-12');
+
+
+    /* 3 level */
+    var authorDiv = document.createElement('div');
+    authorDiv.setAttribute('class', 'comment-author col-xs-12 col-sm-6 col-md-3 col-lg-3');
+    var dateDiv = document.createElement('div');
+    dateDiv.setAttribute('class', 'comment-date col-xs-12 col-sm-6 col-md-3 col-lg-3');
+
+
+    var bodyDiv = document.createElement('div');
+    bodyDiv.setAttribute('class', 'comment-body col-xs-12 col-sm-6 col-md-9 col-lg-9');
+    var buttonsDiv = document.createElement('div');
+    buttonsDiv.setAttribute('class', 'comment-buttons col-xs-12 col-sm-6 col-md-9 col-lg-9');
+
+    /* 4 level */
+    /*for comment-author*/
+    var authorP = document.createElement('p');
+    authorP.innerHTML = commentAUTHOR;
+
+    var authorImg = document.createElement('img');
+    authorImg.setAttribute('src', commentURL);
+    authorImg.setAttribute('alt', commentAUTHOR);
+
+    var badgeSpan = document.createElement('span');
+    badgeSpan.setAttribute('class', 'badge');
+    badgeSpan.innerHTML = commentBADGE;
+
+    var buttonLike = document.createElement('button');
+    buttonLike.setAttribute('type', 'button');
+    buttonLike.setAttribute('class', 'btn btn-success c-like');
+
+    var buttonDislike = document.createElement('button');
+    buttonDislike.setAttribute('type', 'button');
+    buttonDislike.setAttribute('class', 'btn btn-danger c-dislike');
+
+
+    /*for comment-date*/
+    var dateP = document.createElement('p');
+    dateP.innerHTML = commentDATE;
+
+
+    /*for comment-body*/
+    var bodyP = document.createElement('p');
+    if (commentTARGER) {
+        /*console.log('target задан');*/
+        bodyP.innerHTML = '<strong>' + commentTARGER + '</strong>\, ' + commentTEXT;
+    } else {
+        /*console.log('target не указан');*/
+        bodyP.innerHTML = commentTEXT;
+    }
+
+
+    /*for comment-buttons*/
+    var buttonAnswer = document.createElement('button');
+    buttonAnswer.setAttribute('type', 'button');
+    buttonAnswer.setAttribute('class', 'btn btn-default c-answer');
+    buttonAnswer.innerText = ('ANSWER ');
+
+    var buttonDelete = document.createElement('button');
+    buttonDelete.setAttribute('type', 'button');
+    buttonDelete.setAttribute('class', 'btn btn-danger c-delete');
+    buttonDelete.innerText = ('DELETE ');
+
+    var buttonHide = document.createElement('button');
+    buttonHide.setAttribute('type', 'button');
+    buttonHide.setAttribute('class', 'btn btn-info c-hide');
+    buttonHide.innerText = ('HIDE ');
+
+
+    /* 5 level */
+    /*for comment-author*/
+    var spanLike = document.createElement('span');
+    spanLike.setAttribute('aria-hidden', 'true');
+    spanLike.setAttribute('class', 'glyphicon glyphicon-thumbs-up');
+
+    var spanDislike = document.createElement('span');
+    spanDislike.setAttribute('aria-hidden', 'true');
+    spanDislike.setAttribute('class', 'glyphicon glyphicon-thumbs-down');
+
+
+    /*for comment-buttons*/
+    var spanAnswer = document.createElement('span');
+    spanAnswer.setAttribute('aria-hidden', 'true');
+    spanAnswer.setAttribute('class', 'glyphicon glyphicon-check');
+
+    var spanDelete = document.createElement('span');
+    spanDelete.setAttribute('aria-hidden', 'true');
+    spanDelete.setAttribute('class', 'glyphicon glyphicon-trash');
+
+
+    var spanHide = document.createElement('span');
+    spanHide.setAttribute('aria-hidden', 'true');
+    spanHide.setAttribute('class', 'glyphicon glyphicon-eye-close');
+
+
+    /*installation components from 5 to 1 level*/
+    /* setting 4 level*/
+    buttonLike.appendChild(spanLike);
+    buttonDislike.appendChild(spanDislike);
+
+    buttonAnswer.appendChild(spanAnswer);
+    buttonDelete.appendChild(spanDelete);
+    buttonHide.appendChild(spanHide);
+
+    /* setting 3 level*/
+    authorDiv.appendChild(authorP);
+    authorDiv.appendChild(authorImg);
+    authorDiv.appendChild(document.createElement('br'));
+    authorDiv.appendChild(badgeSpan);
+    authorDiv.appendChild(document.createElement('br'));
+    authorDiv.appendChild(buttonLike);
+    authorDiv.appendChild(buttonDislike);
+
+    dateDiv.appendChild(dateP);
+
+    bodyDiv.appendChild(bodyP);
+
+    buttonsDiv.appendChild(buttonAnswer);
+    buttonsDiv.appendChild(buttonDelete);
+    buttonsDiv.appendChild(buttonHide);
+
+
+    /* setting 2 level*/
+    firstRowDiv.appendChild(authorDiv);
+    firstRowDiv.appendChild(bodyDiv);
+
+    secondRowDiv.appendChild(dateDiv);
+    secondRowDiv.appendChild(buttonsDiv);
+
+
+    /* setting 1 level*/
+    commentDiv.appendChild(firstRowDiv);
+    commentDiv.appendChild(secondRowDiv);
+
+
+
+
+    $savedComments.append(commentDiv);
+    }
+}
+
 
 
 
 
 
 $(document).ready(function () {
-    var $savedComments = $('#savedComments');
-    var commentsStorage = JSON.parse(localStorage.getItem('commentsStorage'));
-    if (localStorage.commentID == undefined) {
-        console.log('установим первоначальный счётчик комментариев');
-        localStorage.commentID = 0;
 
-    }
+    var commentsStorage = JSON.parse(localStorage.getItem('commentsStorage'));
 
     if (!commentsStorage) {
         console.log('комментариев нету в Local Storage, по этому создаем пустой обьект');
         commentsStorage = [];
+        console.log('установим первоначальный счётчик комментариев');
+        localStorage.commentID = 0;
     } else {
         console.log('Найдены комментарии, добавим их на страницу');
-        commentsStorage.forEach(function(eachComment){
-            function adressTo () {
-                if (commentsStorage.commentTarget == "") {
-                    return '';
-                } else {
-                    return ('<strong>' + eachComment.commentTarget + ',</strong>');
-                }
-            }
-
-            $savedComments.append(
-                '<div class="comment" commentID="' + eachComment.commentID + '">' +
-                    '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">' +
-                        '<div class="comment-author col-xs-12 col-sm-6 col-md-3 col-lg-3">' +
-                            '<p>' + eachComment.commentAuthor + '</p>' +
-                            '<img src="' + eachComment.commentUrl + '" alt="' + eachComment.commentAuthor + '"/> <br/>' +
-                            '<span class="badge">' + eachComment.commentBadge + '</span> <br/>' +
-                            '<button type="button" class="btn btn-success c-like"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>' +
-                            '<button type="button" class="btn btn-danger c-dislike"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></button>' +
-                        '</div>' +
-                        '<div class="comment-body col-xs-12 col-sm-6 col-md-9 col-lg-9">' +
-                            '<p>' + adressTo() + eachComment.commentText + '</p>' +
-                        '</div>' +
-                    '</div>' +
-                    '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">' +
-                        '<div class="comment-author col-xs-12 col-sm-6 col-md-3 col-lg-3">' +
-                        eachComment.commentDate +
-                        '</div>' +
-                        '<div class="comment-buttons col-xs-12 col-sm-6 col-md-9 col-lg-9">' +
-                            '<button type="button" class="btn btn-default c-answer">ANSWER <span class="glyphicon glyphicon-check" aria-hidden="true"></span></button>' +
-                            '<button type="button" class="btn btn-danger c-delete">DELETE <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>' +
-                            '<button type="button" class="btn btn-info c-hide">HIDE <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span></button>' +
-                        '</div>' +
-                    '</div>' +
-                '</div>'
-                );
-
+        commentsStorage.forEach( function (eachComment) {
+            bildCommentJS(eachComment.commentID,eachComment.commentAuthor,eachComment.commentUrl,eachComment.commentText,eachComment.commentDate,eachComment.commentTarget,eachComment.commentBadge)
         });
-
     }
+
 
 
 
 
     var $form = $('#createComment');
+    var $urlInput = $('input[name="url"]');
+    var $imgForm = $('#createComment img');
+
     $form.on('submit', function (event) {
         event.preventDefault();
-        localStorageCounter('commentID');
+
         var commentID = localStorage.getItem('commentID');
+        localStorageCounter('commentID');
         var $commentAuthor = $form.find('input[name="author"]');
         var $commentUrl = $form.find('input[name="url"]');
         var $commentText = $form.find('textarea[name="comment"]');
         var commentDate = new Date();
         var $commentTarget = $form.find('input[name="target"]');
         var commentBadge = 0;
+        var defAvatar = 'https://simpsonswiki.com/w/images/thumb/f/f0/Butterfinger_-_Bart_Simpson_promotional_image.jpg/300px-Butterfinger_-_Bart_Simpson_promotional_image.jpg';
+        console.log(defAvatar);
 
         var commonComment = {
                 "commentID": commentID,
@@ -499,94 +626,89 @@ $(document).ready(function () {
 
         $commentAuthor.val('');
         $commentText.val('');
-        $commentUrl.val('http://www.avatar-zone.com/Avatars/Simpsons/Simpsons-15.gif');
+        $commentUrl.val(defAvatar);
         $commentTarget.val('');
-        function adressTo () {
-            if (commonComment.commentTarget == "") {
-                return '';
-            } else {
-                return ('<strong>' + commonComment.commentTarget + '\,</strong>');
-            }
-        }
-        $savedComments.append(
-
-            '<div class="comment" commentID="' + commonComment.commentID + '">' +
-            '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">' +
-            '<div class="comment-author col-xs-12 col-sm-6 col-md-3 col-lg-3">' +
-            '<p>' + commonComment.commentAuthor + '</p>' +
-            '<img src="' + commonComment.commentUrl + '" alt="' + commonComment.commentAuthor + '"/> <br/>' +
-            '<span class="badge">' + commonComment.commentBadge + '</span> <br/>' +
-            '<button type="button" class="btn btn-success c-like"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>' +
-            '<button type="button" class="btn btn-danger c-dislike"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></button>' +
-            '</div>' +
-            '<div class="comment-body col-xs-12 col-sm-6 col-md-9 col-lg-9">' +
-            '<p>' + adressTo () + commonComment.commentText + '</p>' +
-            '</div>' +
-            '</div>' +
-            '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">' +
-            '<div class="comment-author col-xs-12 col-sm-6 col-md-3 col-lg-3">' +
-            commonComment.commentDate +
-            '</div>' +
-            '<div class="comment-buttons col-xs-12 col-sm-6 col-md-9 col-lg-9">' +
-            '<button type="button" class="btn btn-default c-answer">ANSWER <span class="glyphicon glyphicon-check" aria-hidden="true"></span></button>' +
-            '<button type="button" class="btn btn-danger c-delete">DELETE <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>' +
-            '<button type="button" class="btn btn-info c-hide">HIDE <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span></button>' +
-            '</div>' +
-            '</div>' +
-            '</div>'
-        );
+        $imgForm.attr('src', defAvatar);
+        $('button.c-answer').removeClass('active');
 
 
 
+        bildCommentJS(commonComment.commentID,commonComment.commentAuthor,commonComment.commentUrl, commonComment.commentText,commonComment.commentDate,commonComment.commentTarget,commonComment.commentBadge);
     });
 
-    var $comment = $('.comment');
-    $comment.on('click', function (event) {
-        console.log('start event leastener');
-        var target = event.target;
-        var commentID = $(target).parents('.comment').attr('commentID');
-        
-        var commentKEY = commentID-1;
-        var commentsStorage = JSON.parse(localStorage.commentsStorage);
+    /* form for comment and valid URL*/
 
-        var author = commentsStorage[commentKEY].commentAuthor;
-        var $bagde = commentsStorage[commentKEY].commentBadge;
+
+    $urlInput.on('blur', function () {
+        var inputValue = $(this).val();
+        var defValue = $(this).prop("defaultValue");
+        $imgForm.attr('src', inputValue);
+        setTimeout(function () {
+            var nWidth = $imgForm.get(0).naturalWidth;
+            if (nWidth === 0) {
+                console.log('некорректное изображение. naturalWidth of Image = ' + nWidth);
+                $imgForm.attr('src', defValue);
+                $urlInput.val(defValue);
+            }
+        }, 500);
+    });
+
+
+    var $comment = $('.comment');
+    $(document).on('click', $comment, function (event) {
+        /*var $savedComments = $('#savedComments');
+        console.log('start event leastener');*/
+        var target = event.target;
+        var commentID = $(target).parents('.comment').attr('commentid');
+        var commentsStorage = JSON.parse(localStorage.commentsStorage);
+        var $parent = $('.comment[commentid="' + commentID + '"]');
+        var $buttonHide = $('.comment[commentid="' + commentID + '"] button.c-show');
+
+        var author = commentsStorage[commentID].commentAuthor;
+        var $bagde = commentsStorage[commentID].commentBadge;
         var $spanBadge = $('.comment[commentid=' + commentID +'] .badge');
+
         switch (true) {
 
             case ($(target).hasClass('c-like') || $(target).hasClass('glyphicon-thumbs-up')):
-                console.log('like' + commentKEY);
-                console.log(commentsStorage[commentKEY]);
                 $bagde = parseInt($bagde) + 1;
-                commentsStorage[commentKEY].commentBadge = $bagde;
+                commentsStorage[commentID].commentBadge = $bagde;
                 localStorage.commentsStorage = JSON.stringify(commentsStorage);
                 $spanBadge.html($bagde);
-                $spanBadge.innerHTML = $bagde;
-                console.log($spanBadge);
-
                 break;
             case ($(target).hasClass('c-dislike') || $(target).hasClass('glyphicon-thumbs-down')):
-                console.log('dislike' + commentKEY);
-                console.log(commentsStorage[commentKEY]);
                 $bagde = parseInt($bagde) - 1;
-                commentsStorage[commentKEY].commentBadge = $bagde;
+                commentsStorage[commentID].commentBadge = $bagde;
                 localStorage.commentsStorage = JSON.stringify(commentsStorage);
                 $spanBadge.html($bagde);
-                $spanBadge.innerHTML = $bagde;
-                console.log($spanBadge);
                 break;
             case ($(target).hasClass('c-answer') || $(target).hasClass('glyphicon-check')):
+                $('button.c-answer').removeClass('active');
+                $('.comment[commentid="' + commentID + '"] .c-answer').addClass('active');
                 $('input[name="target"]').val(author);
-                console.log('answer');
                 console.log(commentsStorage);
                 break;
             case ($(target).hasClass('c-delete') || $(target).hasClass('glyphicon-trash')):
-                console.log('delete');
-                console.log(commentsStorage);
+                $parent.attr('class','comment deleted');
+                setTimeout( function() {
+                    $parent.remove()
+                    }, 300);
+
+                commentsStorage[commentID] = 'deleted';
+                localStorage.commentsStorage = JSON.stringify(commentsStorage);
+                console.log('коментарий успешно удален');
                 break;
             case ($(target).hasClass('c-hide') || $(target).hasClass('glyphicon-eye-close')):
                 console.log('hide');
-                console.log(commentsStorage);
+                $parent.children('div').attr('style','display:none');
+                $parent.append('<button type="button" class="btn btn-info c-show">SHOW <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></button>');
+
+                break;
+            case ($(target).hasClass('c-show') || $(target).hasClass('glyphicon-eye-open')):
+                console.log('hide');
+                $parent.children('div').removeAttr('style','display:none');
+                $buttonHide.remove();
+
                 break;
             default:
                 console.log('no one case');

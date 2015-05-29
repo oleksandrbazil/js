@@ -89,18 +89,30 @@ tr.success {
 .commentPage {
     text-align: center;
 }
+.form-comment {
+    display: table;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid rgba(0, 200, 100, 0.3);
+    background: rgba(0, 200, 100, 0.5);
+    box-shadow: 0 0 5px 1px rgba(0, 200, 100, 0.3);
+}
 
-.comment,
-.form-comment{
+.comment {
+    display: table;
     margin: 20px auto;
     padding: 20px;
     border: 1px solid #cccccc;
-    box-shadow: 0 0 5px 1px #cccccc;
-    display: table;
     background: #ffffff;
+    box-shadow: 0 0 5px 1px #cccccc;
+}
+.comment.deleted {
+    border: 1px solid #870704;
+    box-shadow: 0 0 15px 0 #870704;
 }
 
-.comment-author {
+.comment-author,
+.comment-date{
     text-align: center;
 }
 
@@ -150,6 +162,7 @@ textarea {
 .form-comment button{
     margin: 5px;
 }
+
 .required {
     color: red;
 }
@@ -159,9 +172,7 @@ textarea {
     margin-bottom: 150px;
 }
 
-span.glyphicon {
-    z-index: 20;
-}
-button.btn {
-    z-index: 100;
+.c-answer.active {
+    background-color: rgba(0,200,100,0.5);
+    border-color: rgba(0,200,100,0.3);;
 }

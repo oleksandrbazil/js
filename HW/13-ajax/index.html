@@ -74,65 +74,33 @@
 </div>
 
 
-
-
 <div id="commentBlock" class="container">
     <div class="col-xs-8 col-xs-push-2 col-sm-8 col-md-8 col-lg-8">
 
         <div id="savedComments">
-<!--            <div class="comment">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="comment-author col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                        <p>Name</p>
-                        <img src="http://www.avatar-zone.com/Avatars/Simpsons/Simpsons-15.gif" alt="author Name"/> <br/>
-                        <span class="badge">0</span>
-                        <br/>
-                        <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>
-                        <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></button>
-                    </div>
-                    <div class="comment-body col-xs-12 col-sm-6 col-md-9 col-lg-9">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci asperiores deleniti ipsum itaque iusto provident rem reprehenderit sequi veniam voluptatem? A aliquam nulla omnis quos reprehenderit sed tempore veniam voluptatum!
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias blanditiis distinctio in maiores. Accusamus aperiam asperiores at atque beatae inventore maxime nesciunt nobis optio praesentium provident sint, vel veritatis voluptas!
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consectetur, cumque doloremque eligendi error facere fugit labore laboriosam, maxime nulla numquam omnis quos ratione recusandae temporibus. Adipisci, iste, laborum? Enim.
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid explicabo illo ipsam nesciunt nisi non, obcaecati porro? Eligendi eos est, ex fugit iste nemo nesciunt nulla omnis optio saepe soluta.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="comment-author col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                        Wed, 27 May 2015 07:29:57 GMT
-                    </div>
-                    <div class="comment-buttons col-xs-12 col-sm-6 col-md-9 col-lg-9">
-                        <button type="button" class="btn btn-default">ANSWER <span class="glyphicon glyphicon-check" aria-hidden="true"></span></button>
-                        <button type="button" class="btn btn-danger">DELETE <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
-                        <button type="button" class="btn btn-info">HIDE <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span></button>
-                    </div>
-                </div>
-            </div>
-        </div>-->
 
+        </div>
 
-
-
-
-
-
-    </div>
-
-        <div class=" form-comment col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="form-comment col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <form id="createComment">
                 <div class="comment-author col-xs-12 col-sm-6 col-md-3 col-lg-3">
                     <p>Имя пользователя:<span class="required">*</span></p>
                     <input type="text" name="author" placeholder="Gomer Simpson" required="required"/>
-                    <img src="http://www.avatar-zone.com/Avatars/Simpsons/Simpsons-15.gif" alt="author avatar"/>
+                    <img src="https://simpsonswiki.com/w/images/thumb/f/f0/Butterfinger_-_Bart_Simpson_promotional_image.jpg/300px-Butterfinger_-_Bart_Simpson_promotional_image.jpg"
+                         alt="author avatar"/>
+
                     <p>URL:</p>
-                    <input type="url" name="url" value="http://www.avatar-zone.com/Avatars/Simpsons/Simpsons-15.gif"/>
+                    <input type="url" name="url"
+                           value="https://simpsonswiki.com/w/images/thumb/f/f0/Butterfinger_-_Bart_Simpson_promotional_image.jpg/300px-Butterfinger_-_Bart_Simpson_promotional_image.jpg"/>
                 </div>
                 <div class="comment-body col-xs-12 col-sm-6 col-md-9 col-lg-9">
                     <p class="bold">Прокомментируйсте запись:<span class="required">*</span></p>
-                    <textarea name="comment" rows="5" placeholder="Ваш комментарий" maxlength="900" required="required"></textarea>
+                    <textarea name="comment" rows="5" placeholder="Ваш комментарий" maxlength="900"
+                              required="required"></textarea>
+
                     <div class="comment-buttons">
-                        <button type="button" class="btn btn-default">ANSWER TO <span class="glyphicon glyphicon-share-alt" aria-hidden="true" id="answerTo"></span>
+                        <button type="button" class="btn btn-default">ANSWER TO <span
+                                class="glyphicon glyphicon-share-alt" aria-hidden="true" id="answerTo"></span>
                             <input type="text" name="target" value=""/>
                         </button>
                         <button type="submit" class="btn btn-primary">SEND COMMENT</button>
@@ -140,6 +108,6 @@
                 </div>
             </form>
         </div>
-</div>
+    </div>
 
 </html>

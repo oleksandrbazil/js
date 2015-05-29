@@ -32,12 +32,18 @@ a:hover {
     right: 20px;
 }
 
-.box-l span,
-.box-r span {
+span.title {
     display: block;
     font-weight: bold;
     padding: 5px;
     text-transform: uppercase;
+}
+
+.new {
+    background: rgba(200,0,0,0.7);
+    color: #ffffff;
+    padding: 2px 3px;
+    border-radius: 3px;
 }
 
 
@@ -164,6 +170,4 @@ a:hover {
     transform: rotate(45deg);
     border-radius: 5px;
 }
-
-
 
